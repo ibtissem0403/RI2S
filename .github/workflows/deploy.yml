@@ -1,4 +1,4 @@
-name: 🚀 Deploy to Raspberry Pi
+name: Deploy to Server
 
 on:
   push:
@@ -16,5 +16,5 @@ jobs:
       - name:  Build and run with docker-compose
         run: |
           docker compose down
-          docker compose pull || true  # utile si certaines images viennent de Docker Hub
+          docker compose pull || true 
           docker compose up -d --build
