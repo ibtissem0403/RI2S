@@ -1,0 +1,20 @@
+name: 🚀 Deploy to Raspberry Pi
+
+on:
+  push:
+    branches:
+      - main  
+  workflow_dispatch:  
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, Linux, x64]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name:  Build and run with docker-compose
+        run: |
+          docker compose down
+          docker compose pull || true  # utile si certaines images viennent de Docker Hub
+          docker compose up -d --build
