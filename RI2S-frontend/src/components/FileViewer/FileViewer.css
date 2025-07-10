@@ -1,0 +1,401 @@
+/* FileViewer.css */
+.file-viewer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .file-viewer-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    max-width: 95vw;
+    max-height: 95vh;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideIn 0.3s ease-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: scale(0.9) translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .file-viewer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    background: #f8f9fa;
+    flex-shrink: 0;
+  }
+  
+  .file-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .file-icon {
+    font-size: 24px;
+    color: #666;
+  }
+  
+  .file-details h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+    word-break: break-word;
+  }
+  
+  .file-meta {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .file-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .download-btn, .close-btn {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .download-btn:hover {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+    transform: translateY(-1px);
+  }
+  
+  .close-btn:hover {
+    background: #dc3545;
+    color: white;
+    border-color: #dc3545;
+    transform: translateY(-1px);
+  }
+  
+  .file-viewer-content {
+    flex: 1;
+    overflow: auto;
+    padding: 20px;
+    min-height: 400px;
+  }
+  
+  /* Loading state */
+  .file-viewer-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    color: #666;
+  }
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Error state */
+  .file-viewer-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    color: #dc3545;
+    text-align: center;
+  }
+  
+  .file-viewer-error i {
+    font-size: 48px;
+    margin-bottom: 15px;
+  }
+  
+  .download-anyway-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .download-anyway-btn:hover {
+    background: #0056b3;
+  }
+  
+  /* PDF Viewer */
+  .pdf-viewer {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .pdf-viewer iframe {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+  }
+  
+  /* Image Viewer */
+  .image-viewer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .image-viewer img {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Text Viewer */
+  .text-viewer {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .text-viewer iframe {
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background: white;
+  }
+  
+  /* Office Viewer */
+  .office-viewer {
+    text-align: center;
+  }
+  
+  .office-preview-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #e3f2fd;
+    border-radius: 6px;
+    color: #1976d2;
+  }
+  
+  .office-viewer iframe {
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .office-fallback {
+    margin-top: 15px;
+    padding: 10px;
+    background: #fff3cd;
+    border-radius: 6px;
+    color: #856404;
+    font-size: 14px;
+  }
+  
+  /* Video Viewer */
+  .video-viewer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    background: #000;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .video-viewer video {
+    border-radius: 8px;
+  }
+  
+  /* Audio Viewer */
+  .audio-viewer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 40px 20px;
+  }
+  
+  .audio-icon {
+    font-size: 48px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .audio-viewer audio {
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  /* Unsupported files */
+  .file-viewer-unsupported {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    text-align: center;
+    color: #666;
+  }
+  
+  .unsupported-icon {
+    font-size: 64px;
+    color: #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .file-viewer-unsupported h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+  }
+  
+  .file-viewer-unsupported p {
+    margin: 0 0 20px 0;
+    color: #666;
+    max-width: 400px;
+  }
+  
+  .file-viewer-unsupported .download-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+  }
+  
+  .file-viewer-unsupported .download-btn:hover {
+    background: #0056b3;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .file-viewer-overlay {
+      padding: 10px;
+    }
+    
+    .file-viewer-container {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+    
+    .file-viewer-header {
+      padding: 15px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .file-viewer-content {
+      padding: 15px;
+    }
+    
+    .file-details h3 {
+      font-size: 16px;
+    }
+    
+    .file-actions {
+      flex-wrap: wrap;
+    }
+    
+    .download-btn, .close-btn {
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+    
+    /* Ajuster les hauteurs sur mobile */
+    .pdf-viewer iframe,
+    .text-viewer iframe,
+    .office-viewer iframe {
+      height: 400px;
+    }
+    
+    .file-viewer-loading,
+    .file-viewer-error,
+    .file-viewer-unsupported {
+      height: 300px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .file-viewer-header {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .file-info {
+      justify-content: center;
+    }
+    
+    .pdf-viewer iframe,
+    .text-viewer iframe,
+    .office-viewer iframe {
+      height: 300px;
+    }
+  }

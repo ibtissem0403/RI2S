@@ -1,0 +1,428 @@
+/* Styles généraux pour le conteneur */
+.edit-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* En-tête de page */
+.page-header {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.edit-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-color, #1e293b);
+  margin: 0;
+}
+
+.breadcrumbs-wrapper {
+  margin-bottom: 0.5rem;
+}
+
+/* Styles pour le formulaire */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Styles pour les sections du formulaire */
+.form-section {
+  background-color: var(--card-bg, #ffffff);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.form-section:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-section-content {
+  padding: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color, #1e293b);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-title i {
+  color: var(--primary-color, #3b82f6);
+}
+
+/* Grille pour les champs de formulaire */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Styles pour les champs de formulaire */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-field label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-color, #1e293b);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-field label i {
+  color: var(--primary-color, #3b82f6);
+  font-size: 1rem;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  background-color: #fff;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--primary-color, #3b82f6);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-field input.error,
+.form-field select.error,
+.form-field textarea.error {
+  border-color: var(--error-color, #ef4444);
+}
+
+.form-field .field-error {
+  font-size: 0.85rem;
+  color: var(--error-color, #ef4444);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+}
+
+.required {
+  color: var(--error-color, #ef4444);
+  margin-left: 0.25rem;
+}
+
+/* Styles pour les textarea */
+.form-field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Styles pour les select */
+.form-field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+
+/* Styles pour les notifications */
+.notification {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.notification.success {
+  background-color: var(--success-light, #dcfce7);
+  color: var(--success, #16a34a);
+  border: 1px solid var(--success-border, #bbf7d0);
+}
+
+.notification.error {
+  background-color: var(--error-light, #fee2e2);
+  color: var(--error, #dc2626);
+  border: 1px solid var(--error-border, #fecaca);
+}
+
+.notification.warning {
+  background-color: var(--warning-light, #fef3c7);
+  color: var(--warning, #d97706);
+  border: 1px solid var(--warning-border, #fde68a);
+}
+
+.notification.info {
+  background-color: var(--info-light, #e0f2fe);
+  color: var(--info, #0284c7);
+  border: 1px solid var(--info-border, #bae6fd);
+}
+
+.notification p {
+  margin: 0;
+  padding-right: 2rem;
+}
+
+.notification button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+  padding: 0.25rem;
+  transition: transform 0.2s ease;
+}
+
+.notification button:hover {
+  transform: scale(1.1);
+}
+
+/* Styles pour les boutons d'action */
+.edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.edit-btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.375rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.edit-btn i {
+  font-size: 1rem;
+}
+
+.edit-btn-primary {
+  background-color: var(--primary-color, #3b82f6);
+  color: white;
+}
+
+.edit-btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-hover, #2563eb);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+}
+
+.edit-btn-cancel {
+  background-color: var(--light-bg, #f1f5f9);
+  color: var(--text-color, #1e293b);
+}
+
+.edit-btn-cancel:hover:not(:disabled) {
+  background-color: var(--light-bg-hover, #e2e8f0);
+}
+
+.edit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.edit-btn.loading {
+  opacity: 0.7;
+  cursor: wait;
+  position: relative;
+}
+
+.edit-btn.loading i {
+  visibility: hidden;
+}
+
+.edit-btn.loading:before {
+  content: '';
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  left: calc(50% - 0.5rem - 0.5rem);
+  top: calc(50% - 0.5rem);
+  animation: spin 1s linear infinite;
+}
+
+/* État de chargement */
+.edit-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  text-align: center;
+  min-height: 60vh;
+}
+
+.edit-spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 4px solid rgba(59, 130, 246, 0.2);
+  border-radius: 50%;
+  border-top-color: var(--primary-color, #3b82f6);
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.edit-loading p {
+  font-size: 1.1rem;
+  color: var(--text-muted, #64748b);
+}
+
+/* État d'erreur */
+.edit-error {
+  max-width: 30rem;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: var(--error-light, #fee2e2);
+  border-radius: 0.5rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(220, 38, 38, 0.1);
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.edit-error h3 {
+  font-size: 1.25rem;
+  color: var(--error, #dc2626);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.edit-error p {
+  margin-bottom: 1.5rem;
+  color: var(--text-color, #1e293b);
+}
+
+.edit-error-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--error, #dc2626);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.edit-error-btn:hover {
+  background-color: var(--error-hover, #b91c1c);
+  transform: translateY(-2px);
+}
+
+.loading-text {
+  font-size: 0.85rem;
+  color: var(--text-muted, #64748b);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.loading-text i {
+  animation: spin 1s linear infinite;
+}
+
+/* Styles spécifiques pour les sections conditionnelles */
+.form-section-personal,
+.form-section-professional,
+.form-section-senior,
+.form-section-aidant {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Adaptations responsives */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .edit-actions {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+  }
+  
+  .edit-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .edit-title {
+    font-size: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.1rem;
+  }
+  
+  .form-section-content {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .edit-container {
+    padding: 1rem;
+  }
+  
+  .form-field input, 
+  .form-field select, 
+  .form-field textarea {
+    padding: 0.65rem;
+  }
+  
+  .edit-btn {
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
+  }
+}

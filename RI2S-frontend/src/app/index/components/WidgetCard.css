@@ -1,0 +1,141 @@
+/* Améliorations pour WidgetCard.css */
+.widget {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: all 0.3s ease;
+  border-left: 4px solid #4a6fa1; /* Remplace le vert par bleu foncé */
+  overflow: hidden;
+}
+
+.widget:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.widget-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.widget-description {
+  color: #718096;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.widget-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.widget-icon-large {
+  font-size: 2rem;
+  color: #4a6fa1; /* Remplace le vert par bleu */
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(74, 111, 161, 0.1); /* Fond bleu clair */
+  border-radius: 50%;
+}
+
+/* Style pour les différents types de widgets */
+.widget.primary { border-left-color: #4a6fa1; } /* Bleu */
+.widget.success { border-left-color: #10b981; } /* Vert moins prononcé */
+.widget.warning { border-left-color: #f59e0b; } /* Orange */
+.widget.danger { border-left-color: #ef4444; } /* Rouge */
+.widget.info { border-left-color: #3b82f6; } /* Bleu ciel */
+.widget.purple { border-left-color: #8b5cf6; } /* Violet */
+
+/* Icônes correspondantes */
+.widget.primary .widget-icon-large { color: #4a6fa1; background: rgba(74, 111, 161, 0.1); }
+.widget.success .widget-icon-large { color: #10b981; background: rgba(16, 185, 129, 0.1); }
+.widget.warning .widget-icon-large { color: #f59e0b; background: rgba(245, 158, 11, 0.1); }
+.widget.danger .widget-icon-large { color: #ef4444; background: rgba(239, 68, 68, 0.1); }
+.widget.info .widget-icon-large { color: #3b82f6; background: rgba(59, 130, 246, 0.1); }
+.widget.purple .widget-icon-large { color: #8b5cf6; background: rgba(139, 92, 246, 0.1); }
+
+/* Style pour une carte d'ajout */
+.widget.add-card {
+  border-style: dashed;
+  border-width: 2px;
+  border-color: #94a3b8;
+  border-left-width: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  cursor: pointer;
+}
+
+.widget.add-card .widget-icon-large {
+  background: rgba(148, 163, 184, 0.1);
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+
+.widget.add-card .widget-title {
+  margin-bottom: 0;
+}
+
+.widget.add-card:hover {
+  border-color: #4a6fa1;
+  background-color: rgba(74, 111, 161, 0.02);
+}
+
+.widget.add-card:hover .widget-icon-large {
+  background: rgba(74, 111, 161, 0.1);
+  color: #4a6fa1;
+}
+
+.status {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.status.active {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.status.inactive {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.status.pending {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+/* Style pour le logo - à ajouter à votre WidgetCard.css si ce n'est pas déjà fait */
+.widget-logo {
+  width: 65px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* Variantes de couleur pour les fonds de logo selon le type de widget */
+.widget.primary .widget-logo { background: rgba(74, 111, 161, 0.1); }
+.widget.success .widget-logo { background: rgba(16, 185, 129, 0.1); }
+.widget.warning .widget-logo { background: rgba(245, 158, 11, 0.1); }
+.widget.danger .widget-logo { background: rgba(239, 68, 68, 0.1); }
+.widget.info .widget-logo { background: rgba(59, 130, 246, 0.1); }
+.widget.purple .widget-logo { background: rgba(139, 92, 246, 0.1); }

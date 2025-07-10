@@ -1,0 +1,467 @@
+/* components/WeakSignalList/WeakSignalList.css */
+
+/* Container principal */
+.ws-list-container {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+  }
+  
+  .ws-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.95rem;
+    color: #64748b;
+  }
+  
+  .ws-refresh-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #22577a;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .ws-refresh-btn:hover:not(:disabled) {
+    background-color: #1a4b6d;
+    transform: translateY(-1px);
+  }
+  
+  .ws-refresh-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  /* Table responsive */
+  .ws-table-container {
+    overflow-x: auto;
+  }
+  
+  .ws-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .ws-table th,
+  .ws-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 150px;
+  }
+  
+  .ws-table th {
+    background-color: #f8fafc;
+    font-weight: 600;
+    color: #334155;
+    font-size: 0.875rem;
+    letter-spacing: 0.025em;
+  }
+  
+  .ws-table tbody tr:hover {
+    background-color: #f1f5f9;
+    transition: background-color 0.15s;
+  }
+  
+  /* Colonnes spécifiques */
+  .ws-col-beneficiary {
+    min-width: 150px;
+    max-width: 200px;
+  }
+  
+  .ws-col-type {
+    min-width: 100px;
+    max-width: 120px;
+  }
+  
+  .ws-col-status {
+    min-width: 90px;
+    max-width: 100px;
+  }
+  
+  .ws-col-coordinator {
+    min-width: 130px;
+  }
+  
+  .ws-col-contacts {
+    min-width: 100px;
+    width: 100px;
+    padding-right: 20px; 
+  }
+  
+  .ws-col-date {
+    min-width: 90px;
+    max-width: 100px;
+    padding-left: 20px; 
+  }
+  
+  .ws-col-actions {
+    min-width: 150px;
+    width: 150px;
+  }
+  
+  /* Styles pour les types de signaux */
+  .ws-type-badge {
+    display: inline-block;
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  
+  .type-technical {
+    background-color: #e0f2fe;
+    color: #0369a1;
+  }
+  
+  .type-health {
+    background-color: #fef3c7;
+    color: #d97706;
+  }
+  
+  .type-behavior {
+    background-color: #f3e8ff;
+    color: #7e22ce;
+  }
+  
+  .type-other {
+    background-color: #f3f4f6;
+    color: #4b5563;
+  }
+  
+  /* Styles pour les statuts */
+  .ws-status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .status-new {
+    background-color: #fee2e2;
+    color: #dc2626;
+  }
+  
+  .status-in-progress {
+    background-color: #fef3c7;
+    color: #d97706;
+  }
+  
+  .status-closed {
+    background-color: #d1fae5;
+    color: #10b981;
+  }
+  
+  /* Styles pour les contacts */
+  .ws-contact-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .ws-contact-count,
+  .ws-response-count {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.75rem;
+  }
+  
+  .ws-contact-count {
+    color: #1e40af;
+    font-weight: 500;
+  }
+  
+  .ws-response-count {
+    color: #059669;
+    font-weight: 500;
+  }
+  
+  .ws-no-contacts {
+    color: #6c757d;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  /* Styles pour le coordinateur */
+  .ws-coordinator {
+    color: #475569;
+    font-size: 0.875rem;
+  }
+  
+  /* Indicateur "Vous" */
+  .ws-current-user {
+    background-color: #22577a !important;
+    color: white !important;
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.75rem;
+  }
+  
+  /* Boutons d'actions */
+  .ws-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    min-width: max-content;
+    justify-content: flex-start;
+  }
+  
+  .ws-view-btn,
+  .ws-edit-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  
+  .ws-view-btn {
+    background-color: #4f46e5;
+    color: white;
+  }
+  
+  .ws-view-btn:hover {
+    background-color: #4338ca;
+    transform: translateY(-1px);
+  }
+  
+  .ws-edit-btn {
+    background-color: #f59e0b;
+    color: white;
+  }
+  
+  .ws-edit-btn:hover {
+    background-color: #d97706;
+    transform: translateY(-1px);
+  }
+  
+  /* États de chargement et erreur */
+  .ws-loading,
+  .ws-error,
+  .ws-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+  
+  .ws-spinner {
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid #e2e8f0;
+    border-top: 3px solid #22577a;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .ws-error {
+    color: #dc2626;
+  }
+  
+  .ws-error h3 {
+    margin: 0 0 0.5rem 0;
+    color: #dc2626;
+  }
+  
+  .ws-retry-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .ws-retry-btn:hover {
+    background-color: #b91c1c;
+  }
+  
+  .ws-empty-icon {
+    font-size: 3rem;
+    color: #94a3b8;
+    margin-bottom: 1rem;
+  }
+  
+  .ws-empty h3 {
+    margin: 0 0 0.5rem 0;
+    color: #64748b;
+  }
+  
+  .ws-empty p {
+    margin: 0 0 1rem 0;
+    color: #94a3b8;
+  }
+  
+  /* Pagination */
+  .ws-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-top: 1px solid #e2e8f0;
+    background-color: white;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .ws-pagination-info {
+    color: #64748b;
+    font-size: 0.875rem;
+  }
+  
+  .ws-pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .ws-page-btn {
+    min-width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e2e8f0;
+    background-color: white;
+    color: #64748b;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.875rem;
+    text-decoration: none;
+  }
+  
+  .ws-page-btn:hover:not(.ws-page-btn-disabled):not(.ws-page-btn-active) {
+    background-color: #f1f5f9;
+    border-color: #cbd5e1;
+  }
+  
+  .ws-page-btn-active {
+    background-color: #22577a;
+    color: white;
+    border-color: #22577a;
+  }
+  
+  .ws-page-btn-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .ws-items-per-page {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+  
+  .ws-items-select {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    background-color: white;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 1024px) {
+    .ws-table th,
+    .ws-table td {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+    }
+    
+    .ws-col-actions {
+      min-width: 140px;
+      width: 140px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .ws-table-container {
+      font-size: 0.8rem;
+    }
+    
+    .ws-table th,
+    .ws-table td {
+      padding: 0.5rem;
+    }
+    
+    .ws-actions {
+      flex-direction: column;
+      gap: 0.25rem;
+      min-width: 100px;
+    }
+    
+    .ws-view-btn,
+    .ws-edit-btn {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.5rem;
+    }
+    
+    .ws-pagination {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .ws-pagination-controls {
+      order: -1;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .ws-summary {
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: center;
+    }
+    
+    .ws-contact-summary {
+      align-items: flex-start;
+    }
+    
+    .ws-contact-count,
+    .ws-response-count {
+      font-size: 0.7rem;
+    }
+  }

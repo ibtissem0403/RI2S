@@ -1,0 +1,718 @@
+/* components/WeakSignalStats/WeakSignalStats.css */
+
+.ws-stats-dashboard {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.ws-stats-dashboard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  z-index: 0;
+}
+
+.ws-stats-dashboard > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ws-stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+.ws-stats-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.ws-stats-total {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, #22577a, #38a169);
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  color: white;
+  box-shadow: 0 4px 15px rgba(34, 87, 122, 0.3);
+  transform: translateY(0);
+  transition: transform 0.2s ease;
+}
+
+.ws-stats-total:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(34, 87, 122, 0.4);
+}
+
+.ws-stats-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.ws-stats-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  backdrop-filter: blur(5px);
+}
+
+.ws-stats-content {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.ws-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.ws-stats-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ws-stats-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.ws-stats-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.ws-stats-card:hover::before {
+  transform: scaleX(1);
+}
+
+.ws-stats-card-wide {
+  grid-column: 1 / -1;
+}
+
+.ws-stats-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #334155;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ws-stats-card h3::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* Graphique de statut avec animations */
+.ws-stats-status-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ws-stats-status-overview {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.ws-stats-status-item {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.ws-stats-status-item:hover {
+  transform: scale(1.05);
+}
+
+.ws-stats-status-item.status-new {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  color: #dc2626;
+}
+
+.ws-stats-status-item.status-in-progress {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  color: #d97706;
+}
+
+.ws-stats-status-item.status-closed {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  color: #10b981;
+}
+
+.ws-stats-status-count {
+  font-size: 2rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.ws-stats-status-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.ws-stats-status-percentage {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.ws-stats-bars {
+  display: flex;
+  width: 100%;
+  height: 1rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ws-stats-bar {
+  height: 100%;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.ws-stats-bar.status-new {
+  background: linear-gradient(90deg, #dc2626, #ef4444);
+}
+
+.ws-stats-bar.status-in-progress {
+  background: linear-gradient(90deg, #d97706, #f59e0b);
+}
+
+.ws-stats-bar.status-closed {
+  background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.ws-stats-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Temps moyen de clôture */
+.ws-stats-time {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border-radius: 1rem;
+  border: 1px solid #0369a1;
+  position: relative;
+  overflow: hidden;
+}
+
+.ws-stats-time::before {
+  content: '⏱️';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  opacity: 0.3;
+}
+
+.ws-stats-time-value {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #0369a1;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  animation: countUp 1s ease-out;
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ws-stats-time-label {
+  font-size: 1.125rem;
+  color: #0369a1;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+/* Répartition par type */
+.ws-stats-type-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ws-stats-type-item {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.ws-stats-type-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-color: #22577a;
+}
+
+.ws-stats-type-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.ws-stats-type-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ws-stats-type-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.ws-stats-type-badge.type-technique {
+  background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+  color: #0369a1;
+}
+
+.ws-stats-type-badge.type-health,
+.ws-stats-type-badge.type-santé {
+  background: linear-gradient(135deg, #fef9c3, #fef08a);
+  color: #ca8a04;
+}
+
+.ws-stats-type-badge.type-behavior,
+.ws-stats-type-badge.type-comportement {
+  background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+  color: #7e22ce;
+}
+
+.ws-stats-type-badge.type-other,
+.ws-stats-type-badge.type-autre {
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  color: #4b5563;
+}
+
+.ws-stats-type-count {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #334155;
+  padding: 0.25rem 0.75rem;
+  background: rgba(34, 87, 122, 0.1);
+  border-radius: 20px;
+}
+
+.ws-stats-type-bar-container {
+  width: 100%;
+  height: 0.75rem;
+  background: linear-gradient(90deg, #f1f5f9, #e2e8f0);
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ws-stats-type-bar {
+  height: 100%;
+  border-radius: 25px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.ws-stats-type-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 3s infinite;
+}
+
+.ws-stats-type-bar.type-technique {
+  background: linear-gradient(90deg, #0369a1, #0284c7);
+}
+
+.ws-stats-type-bar.type-health,
+.ws-stats-type-bar.type-santé {
+  background: linear-gradient(90deg, #ca8a04, #eab308);
+}
+
+.ws-stats-type-bar.type-behavior,
+.ws-stats-type-bar.type-comportement {
+  background: linear-gradient(90deg, #7e22ce, #a855f7);
+}
+
+.ws-stats-type-bar.type-other,
+.ws-stats-type-bar.type-autre {
+  background: linear-gradient(90deg, #4b5563, #6b7280);
+}
+
+/* Sources des signaux */
+.ws-stats-source-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ws-stats-source-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.ws-stats-source-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-color: #22577a;
+}
+
+.ws-stats-source-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22577a, #38a169);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.ws-stats-source-info {
+  flex: 1;
+}
+
+.ws-stats-source-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.25rem;
+}
+
+.ws-stats-source-bar-container {
+  width: 100%;
+  height: 0.5rem;
+  background: linear-gradient(90deg, #f1f5f9, #e2e8f0);
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.ws-stats-source-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #22577a, #38a169);
+  border-radius: 25px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ws-stats-source-count {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #22577a;
+  padding: 0.25rem 0.75rem;
+  background: rgba(34, 87, 122, 0.1);
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+/* Tendance mensuelle */
+.ws-stats-month-chart {
+  position: relative;
+  padding: 1rem 0;
+}
+
+.ws-stats-month-bars {
+  display: flex;
+  align-items: end;
+  gap: 0.5rem;
+  height: 200px;
+  padding: 1rem 0;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.ws-stats-month-bar {
+  flex: 1;
+  background: linear-gradient(180deg, #667eea, #764ba2);
+  border-radius: 0.25rem 0.25rem 0 0;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  min-height: 4px;
+}
+
+.ws-stats-month-bar:hover {
+  background: linear-gradient(180deg, #4f46e5, #7c3aed);
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.ws-stats-month-bar::after {
+  content: attr(data-count);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.ws-stats-month-bar:hover::after {
+  opacity: 1;
+}
+
+.ws-stats-month-labels {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.ws-stats-month-label {
+  flex: 1;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Statistiques par contacts */
+.ws-stats-contact-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.ws-stats-contact-item {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(34, 87, 122, 0.05), rgba(56, 161, 105, 0.05));
+  border: 1px solid rgba(34, 87, 122, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.ws-stats-contact-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(34, 87, 122, 0.15);
+  border-color: #22577a;
+}
+
+.ws-stats-contact-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22577a, #38a169);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.25rem;
+}
+
+.ws-stats-contact-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.5rem;
+}
+
+.ws-stats-contact-count {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #22577a;
+}
+
+/* États vides et erreur */
+.ws-stats-empty,
+.ws-stats-error {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: #64748b;
+}
+
+.ws-stats-empty i,
+.ws-stats-error i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.ws-stats-error {
+  color: #dc2626;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .ws-stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ws-stats-status-overview {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .ws-stats-contact-list {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .ws-stats-dashboard {
+    border-radius: 0.5rem;
+  }
+  
+  .ws-stats-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .ws-stats-header h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .ws-stats-total {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .ws-stats-content {
+    padding: 1rem;
+  }
+  
+  .ws-stats-grid {
+    gap: 1rem;
+  }
+  
+  .ws-stats-card {
+    padding: 1.5rem;
+  }
+  
+  .ws-stats-time-value {
+    font-size: 2rem;
+  }
+  
+  .ws-stats-month-bars {
+    height: 150px;
+  }
+  
+  .ws-stats-type-info {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  
+  .ws-stats-source-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .ws-stats-source-bar-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .ws-stats-header h2 {
+    font-size: 1.25rem;
+  }
+  
+  .ws-stats-value {
+    font-size: 1.25rem;
+  }
+  
+  .ws-stats-card h3 {
+    font-size: 1.125rem;
+  }
+  
+  .ws-stats-contact-list {
+    grid-template-columns: 1fr;
+  }
+}

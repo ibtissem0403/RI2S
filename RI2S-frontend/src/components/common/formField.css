@@ -1,0 +1,486 @@
+/* formField.css - Version améliorée avec icônes dans les labels uniquement */
+
+:root {
+    --input-bg: #ffffff;
+    --input-border: #d1d5db;
+    --input-border-focus: #4f46e5;
+    --input-border-error: #ef4444;
+    --input-shadow-focus: rgba(79, 70, 229, 0.2);
+    --input-text: #1f2937;
+    --input-placeholder: #9ca3af;
+    --label-text: #374151;
+    --hint-text: #6b7280;
+    --error-text: #ef4444;
+    --input-radius: 0.375rem;
+    --transition-speed: 0.2s;
+    --icon-color: #6b7280;
+    --icon-color-focus: #4f46e5;
+}
+
+.form-field {
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+.form-field-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--label-text);
+    transition: color var(--transition-speed) ease;
+}
+
+.form-field-label-icon {
+    color: var(--icon-color);
+    transition: all var(--transition-speed) ease;
+    font-size: 1rem;
+}
+
+/* Animation de l'icône au hover du label */
+.form-field-label:hover .form-field-label-icon {
+    color: var(--icon-color-focus);
+    transform: scale(1.1);
+}
+
+.form-field-required {
+    color: var(--input-border-error);
+    margin-left: 0.25rem;
+}
+
+/* Flèche pour les selects */
+.form-field-select-arrow {
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    transform: translateY(-50%);
+    color: var(--icon-color);
+    pointer-events: none;
+}
+
+/* Base styles for inputs, textareas, and selects */
+.form-field-input,
+.form-field-textarea,
+.form-field-select {
+    display: block;
+    width: 100%;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--input-text);
+    background-color: var(--input-bg);
+    background-clip: padding-box;
+    border: 1px solid var(--input-border);
+    border-radius: var(--input-radius);
+    transition: border-color var(--transition-speed) ease-in-out,
+                box-shadow var(--transition-speed) ease-in-out,
+                transform var(--transition-speed) ease-in-out;
+}
+
+/* Placeholder styling */
+.form-field-input::placeholder,
+.form-field-textarea::placeholder {
+    color: var(--input-placeholder);
+    opacity: 1;
+}
+
+/* Focus state */
+.form-field-input:focus,
+.form-field-textarea:focus,
+.form-field-select:focus {
+    border-color: var(--input-border-focus);
+    outline: 0;
+    box-shadow: 0 0 0 3px var(--input-shadow-focus);
+    transform: translateY(-1px);
+}
+
+/* Changer la couleur de l'icône quand le champ est focus */
+.form-field-input:focus ~ .form-field-label .form-field-label-icon,
+.form-field-textarea:focus ~ .form-field-label .form-field-label-icon,
+.form-field-select:focus ~ .form-field-label .form-field-label-icon {
+    color: var(--icon-color-focus);
+}
+
+/* Animated label */
+.form-field-animated-label {
+    position: relative;
+}
+
+.form-field-animated-label .form-field-input,
+.form-field-animated-label .form-field-textarea,
+.form-field-animated-label .form-field-select {
+    padding-top: 1.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.form-field-animated-label .form-field-label {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.75rem;
+    font-size: 0.75rem;
+    margin: 0;
+    transition: all var(--transition-speed) ease;
+    pointer-events: none;
+    color: var(--hint-text);
+}
+
+.form-field-animated-label .form-field-input:focus ~ .form-field-label,
+.form-field-animated-label .form-field-textarea:focus ~ .form-field-label,
+.form-field-animated-label .form-field-select:focus ~ .form-field-label {
+    color: var(--input-border-focus);
+    font-weight: 500;
+}
+
+/* Error state */
+.form-field-error .form-field-input,
+.form-field-error .form-field-textarea,
+.form-field-error .form-field-select {
+    border-color: var(--input-border-error);
+}
+
+.form-field-error .form-field-input:focus,
+.form-field-error .form-field-textarea:focus,
+.form-field-error .form-field-select:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.form-field-error-message {
+    margin-top: 0.375rem;
+    font-size: 0.75rem;
+    color: var(--error-text);
+    display: flex;
+    align-items: center;
+}
+
+.form-field-error-message::before {
+    content: '⚠️';
+    display: inline-block;
+    margin-right: 0.375rem;
+}
+
+/* Hint text */
+.form-field-hint {
+    margin-top: 0.375rem;
+    font-size: 0.75rem;
+    color: var(--hint-text);
+}
+
+/* Textarea specific */
+.form-field-textarea {
+    min-height: 6rem;
+    resize: vertical;
+}
+
+/* Select specific */
+.form-field-select {
+    padding-right: 2rem;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+}
+
+/* Checkbox and Radio specific */
+.form-field-checkbox,
+.form-field-radio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: transform var(--transition-speed) ease;
+}
+
+.form-field-checkbox:hover,
+.form-field-radio:hover {
+    transform: translateX(2px);
+}
+
+.form-field-checkbox input[type="checkbox"],
+.form-field-radio input[type="radio"] {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.form-field-checkbox input[type="checkbox"]:focus,
+.form-field-radio input[type="radio"]:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px var(--input-shadow-focus);
+}
+
+.form-field-checkbox label,
+.form-field-radio label {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+/* Custom checkbox */
+.form-field-custom-checkbox {
+    position: relative;
+    padding-left: 1.75rem;
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+}
+
+.form-field-custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.form-field-custom-checkbox .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.25rem;
+    width: 1.25rem;
+    background-color: white;
+    border: 1px solid var(--input-border);
+    border-radius: 0.25rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.form-field-custom-checkbox:hover input ~ .checkmark {
+    border-color: var(--input-border-focus);
+}
+
+.form-field-custom-checkbox input:checked ~ .checkmark {
+    background-color: var(--input-border-focus);
+    border-color: var(--input-border-focus);
+}
+
+.form-field-custom-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 0.45rem;
+    top: 0.2rem;
+    width: 0.25rem;
+    height: 0.5rem;
+    border: solid white;
+    border-width: 0 0.125rem 0.125rem 0;
+    transform: rotate(45deg);
+}
+
+.form-field-custom-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Input group */
+.form-field-group {
+    display: flex;
+    position: relative;
+}
+
+.form-field-group .form-field-input {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+}
+
+.form-field-group > .form-field-input:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-field-group > .form-field-input:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-field-group-prepend,
+.form-field-group-append {
+    display: flex;
+}
+
+.form-field-group-text {
+    display: flex;
+    align-items: center;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--hint-text);
+    text-align: center;
+    white-space: nowrap;
+    background-color: #f3f4f6;
+    border: 1px solid var(--input-border);
+}
+
+.form-field-group-prepend .form-field-group-text {
+    border-right: 0;
+    border-top-left-radius: var(--input-radius);
+    border-bottom-left-radius: var(--input-radius);
+}
+
+.form-field-group-append .form-field-group-text {
+    border-left: 0;
+    border-top-right-radius: var(--input-radius);
+    border-bottom-right-radius: var(--input-radius);
+}
+
+/* Input with clear button */
+.form-field-clearable {
+    position: relative;
+}
+
+.form-field-clearable .form-field-input {
+    padding-right: 2.5rem;
+}
+
+.form-field-clear-button {
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0.25rem;
+    cursor: pointer;
+    color: var(--hint-text);
+    opacity: 0.7;
+    border-radius: 50%;
+    line-height: 1;
+    transition: all var(--transition-speed) ease;
+}
+
+.form-field-clear-button:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Disabled state */
+.form-field-input:disabled,
+.form-field-textarea:disabled,
+.form-field-select:disabled {
+    background-color: #f3f4f6;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* File input */
+.form-field-file {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field-file-input {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.form-field-file-label {
+    display: flex;
+    align-items: center;
+    padding: 0.625rem 0.75rem;
+    background-color: #f3f4f6;
+    color: var(--label-text);
+    border: 1px dashed var(--input-border);
+    border-radius: var(--input-radius);
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+}
+
+.form-field-file-label:hover {
+    background-color: #e5e7eb;
+    border-color: var(--input-border-focus);
+}
+
+.form-field-file-text {
+    margin-left: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Animation d'entrée */
+@keyframes formFieldFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-field-animated {
+    animation: formFieldFadeIn 0.3s ease-out forwards;
+}
+
+/* Range input */
+.form-field-range {
+    width: 100%;
+    height: 0.5rem;
+    border-radius: 1rem;
+    background-color: #e5e7eb;
+    outline: none;
+    appearance: none;
+    margin: 0.5rem 0;
+}
+
+.form-field-range::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    background-color: var(--input-border-focus);
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+}
+
+.form-field-range::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+/* Animations pour les icônes */
+@keyframes iconPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.form-field:hover .form-field-label-icon {
+    animation: iconPulse 1s ease infinite;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .form-field-group {
+        flex-direction: column;
+    }
+    
+    .form-field-group > .form-field-input,
+    .form-field-group-prepend,
+    .form-field-group-append {
+        width: 100%;
+    }
+    
+    .form-field-group > .form-field-input:not(:first-child),
+    .form-field-group > .form-field-input:not(:last-child) {
+        border-radius: var(--input-radius);
+        margin-top: 0.5rem;
+    }
+    
+    .form-field-group-prepend .form-field-group-text,
+    .form-field-group-append .form-field-group-text {
+        border-radius: var(--input-radius);
+        border: 1px solid var(--input-border);
+    }
+}

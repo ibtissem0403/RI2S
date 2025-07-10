@@ -1,0 +1,741 @@
+/* components/ImportDetail/ImportDetail.css */
+/* Header styles */
+.detail-header {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+  
+  .detail-header-main {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .detail-file-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .detail-file-icon {
+    font-size: 2.5rem;
+    color: #64748b;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8fafc;
+    border-radius: 0.5rem;
+  }
+  
+  .detail-file-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .detail-file-name {
+    font-size: 1.5rem;
+    color: #334155;
+    margin: 0;
+  }
+  
+  .detail-file-attributes {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .detail-file-type,
+  .detail-file-size,
+  .detail-file-date {
+    font-size: 0.9rem;
+    color: #64748b;
+  }
+  
+  .detail-header-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .detail-status-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  .detail-status-badge.status-pending {
+    background-color: #fee2e2;
+    color: #dc2626;
+  }
+  
+  .detail-status-badge.status-validated {
+    background-color: #d1fae5;
+    color: #10b981;
+  }
+  
+  .detail-status-badge.status-rejected {
+    background-color: #f3f4f6;
+    color: #4b5563;
+  }
+  
+  .detail-status-badge.status-integrated {
+    background-color: #dbeafe;
+    color: #3b82f6;
+  }
+  
+  .detail-validate-btn,
+  .detail-integrate-btn,
+  .detail-download-errors-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .detail-validate-btn {
+    background-color: #22577a;
+    color: white;
+    border: none;
+  }
+  
+  .detail-validate-btn:hover {
+    background-color: #1a4b6d;
+  }
+  
+  .detail-integrate-btn {
+    background-color: #10b981;
+    color: white;
+    border: none;
+  }
+  
+  .detail-integrate-btn:hover {
+    background-color: #059669;
+  }
+  
+  .detail-download-errors-btn {
+    background-color: transparent;
+    color: #dc2626;
+    border: 1px solid #dc2626;
+  }
+  
+  .detail-download-errors-btn:hover {
+    background-color: #fee2e2;
+  }
+  
+  /* Styles pour le nouveau header avec les classes du composant ImportDetailHeader.tsx */
+  .import-detail-header {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .import-detail-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .import-detail-file {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .import-detail-file-icon {
+    font-size: 2.5rem;
+    color: #64748b;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8fafc;
+    border-radius: 0.5rem;
+  }
+  
+  .import-detail-file-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .import-detail-file-name {
+    font-size: 1.5rem;
+    color: #334155;
+    margin: 0;
+  }
+  
+  .import-detail-file-meta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .import-detail-file-size,
+  .import-detail-file-date,
+  .import-detail-file-user,
+  .import-detail-file-separator {
+    font-size: 0.9rem;
+    color: #64748b;
+  }
+  
+  .import-detail-meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .import-detail-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .import-detail-meta-label {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 500;
+  }
+  
+  .import-detail-meta-value {
+    font-size: 0.95rem;
+    color: #334155;
+    font-weight: 500;
+  }
+  
+  .import-detail-meta-date {
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+  
+  .import-detail-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .import-validate-btn,
+  .import-integrate-btn,
+  .import-download-errors-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .import-validate-btn {
+    background-color: #22577a;
+    color: white;
+    border: none;
+  }
+  
+  .import-validate-btn:hover {
+    background-color: #1a4b6d;
+  }
+  
+  .import-integrate-btn {
+    background-color: #10b981;
+    color: white;
+    border: none;
+  }
+  
+  .import-integrate-btn:hover {
+    background-color: #059669;
+  }
+  
+  .import-download-errors-btn {
+    background-color: transparent;
+    color: #dc2626;
+    border: 1px solid #dc2626;
+  }
+  
+  .import-download-errors-btn:hover {
+    background-color: #fee2e2;
+  }
+  
+  .status-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  .status-badge.status-pending {
+    background-color: #fee2e2;
+    color: #dc2626;
+  }
+  
+  .status-badge.status-validated {
+    background-color: #d1fae5;
+    color: #10b981;
+  }
+  
+  .status-badge.status-rejected {
+    background-color: #f3f4f6;
+    color: #4b5563;
+  }
+  
+  .status-badge.status-integrated {
+    background-color: #dbeafe;
+    color: #3b82f6;
+  }
+  
+  /* Modal de suppression */
+  .delete-confirmation {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  .delete-warning {
+    color: #dc2626;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  .delete-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+  
+  .delete-cancel-btn,
+  .delete-confirm-btn {
+    padding: 0.6rem 1.25rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .delete-cancel-btn {
+    background-color: transparent;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .delete-cancel-btn:hover:not(:disabled) {
+    background-color: #f8fafc;
+  }
+  
+  .delete-confirm-btn {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+  }
+  
+  .delete-confirm-btn:hover:not(:disabled) {
+    background-color: #b91c1c;
+  }
+  
+  .delete-cancel-btn:disabled,
+  .delete-confirm-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  /* Message de notification */
+  .import-detail-message {
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .import-detail-message.success {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .import-detail-message.error {
+    background-color: #fee2e2;
+    color: #b91c1c;
+  }
+  
+  .import-detail-message p {
+    margin: 0;
+  }
+  
+  .detail-metadata {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .detail-metadata-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .detail-metadata-title {
+    font-size: 1.1rem;
+    color: #334155;
+    margin: 0;
+    font-weight: 600;
+  }
+  
+  .detail-metadata-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .detail-metadata-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .detail-metadata-label {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 500;
+  }
+  
+  .detail-metadata-value {
+    font-size: 0.95rem;
+    color: #334155;
+    font-weight: 500;
+  }
+  
+  .detail-metadata-value.error {
+    color: #dc2626;
+  }
+  
+  .detail-metadata-value.success {
+    color: #10b981;
+  }
+  
+  .detail-metadata-value.info {
+    color: #3b82f6;
+  }
+  
+  .experimentation-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background-color: #e0f2fe;
+    color: #0369a1;
+  }
+  
+  /* Preview Table styles */
+  .preview-container {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .preview-stats {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem 1.5rem;
+    background-color: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+  }
+  
+  .preview-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .preview-stat-label {
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+  
+  .preview-stat-value {
+    font-size: 1.1rem;
+    color: #334155;
+    font-weight: 600;
+  }
+  
+  .preview-table-container {
+    overflow-x: auto;
+  }
+  
+  .preview-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .preview-table th {
+    position: sticky;
+    top: 0;
+    background-color: #f1f5f9;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+    white-space: nowrap;
+  }
+  
+  .preview-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.95rem;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .preview-table tr:hover td {
+    background-color: #f8fafc;
+  }
+  
+  .preview-loading,
+  .preview-error,
+  .preview-empty,
+  .preview-unstructured {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .preview-spinner {
+    width: 3rem;
+    height: 3rem;
+    border: 3px solid #f3f4f6;
+    border-top: 3px solid #22577a;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .preview-error h3 {
+    color: #dc2626;
+    margin-bottom: 0.5rem;
+  }
+  
+  .preview-unstructured-icon {
+    font-size: 3rem;
+    color: #cbd5e1;
+    margin-bottom: 1rem;
+  }
+  
+  .preview-unstructured h3 {
+    font-size: 1.25rem;
+    color: #334155;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Validation Form styles */
+  .validation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .validation-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .validation-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #334155;
+  }
+  
+  .validation-required {
+    color: #ef4444;
+    margin-left: 0.25rem;
+  }
+  
+  .validation-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .validation-radio-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .validation-radio {
+    margin-top: 0.25rem;
+  }
+  
+  .validation-radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+  }
+  
+  .validation-radio-icon {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1rem;
+  }
+  
+  .validation-radio-icon.success {
+    background-color: #d1fae5;
+    color: #10b981;
+  }
+  
+  .validation-radio-icon.error {
+    background-color: #fee2e2;
+    color: #dc2626;
+  }
+  
+  .validation-radio-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .validation-radio-description {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: normal;
+  }
+  
+  .validation-textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    font-size: 0.95rem;
+    color: #334155;
+    resize: vertical;
+    transition: all 0.2s;
+  }
+  
+  .validation-textarea:focus {
+    outline: none;
+    border-color: #22577a;
+    box-shadow: 0 0 0 2px rgba(34, 87, 122, 0.1);
+  }
+  
+  .validation-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+  }
+  
+  .validation-submit-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: white;
+  }
+  
+  .validation-submit-btn.success {
+    background-color: #10b981;
+  }
+  
+  .validation-submit-btn.success:hover:not(:disabled) {
+    background-color: #059669;
+  }
+  
+  .validation-submit-btn.error {
+    background-color: #dc2626;
+  }
+  
+  .validation-submit-btn.error:hover:not(:disabled) {
+    background-color: #b91c1c;
+  }
+  
+  .validation-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    .detail-header-main {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .detail-header-actions {
+      width: 100%;
+      justify-content: flex-start;
+    }
+  
+    .import-detail-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .import-detail-actions {
+      width: 100%;
+      justify-content: flex-start;
+      margin-top: 1rem;
+    }
+    
+    .detail-metadata {
+      grid-template-columns: 1fr;
+    }
+    
+    .validation-radio-group {
+      gap: 1.5rem;
+    }
+  }

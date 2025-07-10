@@ -1,0 +1,36 @@
+/* src/components/UI/Tabs.css */
+
+.tabs-container {
+    width: 100%;
+  }
+  
+  .tabs-header {
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+  }
+  
+  .tab-button {
+    padding: 1rem 0;
+    margin-right: 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  
+  .tab-button:hover:not(.tab-button-active) {
+    color: #4b5563;
+    border-bottom-color: #d1d5db;
+  }
+  
+  .tab-button-active {
+    color: #2563eb;
+    border-bottom-color: #2563eb;
+  }
+  
+  .tabs-content {
+    margin-top: 1rem;
+  }

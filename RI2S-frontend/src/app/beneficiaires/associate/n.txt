@@ -1,0 +1,273 @@
+{/*
+      {/* Informations sur le token */}
+      {tokenInfo && (
+        <div className="exp-info-box">
+          <div className="exp-info-icon">
+            <i className="fas fa-key"></i>
+          </div>
+          <div className="exp-info-content">
+            <div className="exp-info-title">
+              Informations d'authentification
+            </div>
+            <div className="exp-info-message">
+              {tokenInfo}
+              {tokenInfo.includes("expiré") && (
+                <button
+                  className="exp-btn exp-btn-small exp-btn-primary"
+                  style={{ marginLeft: "10px" }}
+                  onClick={handleReconnect}
+                >
+                  Se reconnecter
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {error && (
+        <div className="exp-alert exp-alert-error">
+          <div className="exp-alert-icon">
+            <i className="fas fa-exclamation-circle"></i>
+          </div>
+          <div className="exp-alert-content">
+            <div className="exp-alert-title">Erreur</div>
+            <div className="exp-alert-message">{error}</div>
+            {error.includes("session") ||
+            error.includes("authentification") ||
+            error.includes("connecter") ? (
+              <button
+                className="exp-btn exp-btn-small exp-btn-primary"
+                style={{ marginTop: "10px" }}
+                onClick={handleReconnect}
+              >
+                <i className="fas fa-sign-in-alt"></i>
+                Se reconnecter
+              </button>
+            ) : null}
+          </div>
+          <button
+            className="exp-alert-close"
+            onClick={() => setError(null)}
+            aria-label="Fermer"
+          >
+            <i className="fas fa-times"></i>
+          </button>
+        </div>
+      )}
+
+      {/* Affichage du nombre de bénéficiaires pour débogage */}
+      {pseudonymizedBeneficiaries.length === 0 && (
+        <div className="exp-alert exp-alert-info">
+          <div className="exp-alert-icon">
+            <i className="fas fa-info-circle"></i>
+          </div>
+          <div className="exp-alert-content">
+            <div className="exp-alert-title">Information</div>
+            <div className="exp-alert-message">
+              Aucun bénéficiaire pseudonymisé disponible.
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="exp-card">
+        <div className="exp-card-header">
+          <div className="exp-card-title">
+            <i className="fas fa-users"></i>
+            Sélection du bénéficiaire
+          </div>
+        </div>
+        <div className="exp-card-content">
+          <form onSubmit={handleSubmit} className="associate-form">
+            <div className="exp-field-group">
+              <div className="exp-field-label">
+                <i className="fas fa-user"></i>
+                Bénéficiaire
+              </div>
+              <div className="filter-select-wrapper">
+                <select
+                  className="filter-select"
+                  value={selectedBeneficiary}
+                  onChange={(e) => setSelectedBeneficiary(e.target.value)}
+                  required
+                >
+                  <option key="default-beneficiary" value="">
+                    Sélectionner un bénéficiaire
+                  </option>
+                  {pseudonymizedBeneficiaries.map((b, index) => (
+                    <option key={b.id || `ben-index-${index}`} value={b.id}>
+                      {b.pseudoId}
+                    </option>
+                  ))}
+                </select>
+                <div className="filter-select-icon">
+                  <i className="fas fa-chevron-down"></i>
+                </div>
+              </div>
+            </div>
+
+            <div className="exp-field-group">
+              <div className="exp-field-label">
+                <i className="fas fa-bullseye"></i>
+                Cible
+              </div>
+              <div className="filter-select-wrapper">
+                <select
+                  className="filter-select"
+                  value={selectedCible}
+                  onChange={handleCibleChange}
+                  required
+                >
+                  <option key="default-cible" value="">
+                    Sélectionner une cible
+                  </option>
+                  {experimentation.cibles.map((cible) => (
+                    <option key={`cible-${cible._id}`} value={cible._id}>
+                      {cible.nom_cible}
+                    </option>
+                  ))}
+                </select>
+                <div className="filter-select-icon">
+                  <i className="fas fa-chevron-down"></i>
+                </div>
+              </div>
+            </div>
+
+            <div className="exp-field-group">
+              <div className="exp-field-label">
+                <i className="fas fa-flag"></i>
+                Statut initial
+              </div>
+              <div className="filter-select-wrapper">
+                <select
+                  className="filter-select"
+                  value={selectedStatut}
+                  onChange={handleStatutChange}
+                  disabled={!selectedCible}
+                  required
+                >
+                  <option key="default-statut" value="">
+                    Sélectionner un statut
+                  </option>
+                  {selectedCible &&
+                    getStatutsForCible(selectedCible).map((statut) => (
+                      <option key={`statut-${statut._id}`} value={statut._id}>
+                        {statut.nom_statut}
+                      </option>
+                    ))}
+                </select>
+                <div className="filter-select-icon">
+                  <i className="fas fa-chevron-down"></i>
+                </div>
+              </div>
+            </div>
+
+            {/* Champs dynamiques spécifiques au statut */}
+            {selectedStatut && champs.length > 0 && (
+              <div className="exp-field-section">
+                <h3 className="exp-field-section-title">
+                  <i className="fas fa-list-alt"></i>
+                  Informations spécifiques
+                </h3>
+
+                {champs.map((champ) => (
+                  <div className="exp-field-group" key={`champ-${champ._id}`}>
+                    <div className="exp-field-label">
+                      {champ.nom_champ}
+                      {champ.obligatoire && (
+                        <span className="exp-required">*</span>
+                      )}
+                    </div>
+                    {renderChamp(champ)}
+                    {champ.description && (
+                      <div className="exp-field-help">{champ.description}</div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Champs communs */}
+            {selectedStatut && champs_communs.length > 0 && (
+              <div className="exp-field-section">
+                <h3 className="exp-field-section-title">
+                  <i className="fas fa-clipboard-list"></i>
+                  Informations communes
+                </h3>
+
+                {champs_communs.map((champ) => (
+                  <div
+                    className="exp-field-group"
+                    key={`champ-commun-${champ._id}`}
+                  >
+                    <div className="exp-field-label">
+                      {champ.nom_champ}
+                      {champ.obligatoire && (
+                        <span className="exp-required">*</span>
+                      )}
+                    </div>
+                    {renderChamp(champ, true)}
+                    {champ.description && (
+                      <div className="exp-field-help">{champ.description}</div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div className="associate-form-actions">
+              <button
+                type="button"
+                className="exp-btn exp-btn-outline"
+                onClick={() =>
+                  router.push(`/experimentations/${experimentationId}`)
+                }
+              >
+                <i className="fas fa-times"></i>
+                Annuler
+              </button>
+              <button
+                type="submit"
+                className="exp-btn exp-btn-primary"
+                disabled={
+                  !selectedBeneficiary ||
+                  !selectedCible ||
+                  !selectedStatut ||
+                  isSubmitting
+                }
+              >
+                {isSubmitting ? (
+                  <>
+                    <i className="fas fa-spinner fa-spin"></i>
+                    Traitement...
+                  </>
+                ) : (
+                  <>
+                    <i className="fas fa-link"></i>
+                    Associer le bénéficiaire
+                  </>
+                )}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      {/* Bouton pour créer un nouveau bénéficiaire si aucun n'est disponible */}
+      {pseudonymizedBeneficiaries.length === 0 && (
+        <div className="exp-card mt-4">
+          <div className="exp-card-content">
+            <div style={{ textAlign: "center" }}>
+              <p>Aucun bénéficiaire disponible pour l'association.</p>
+              <button
+                className="exp-btn exp-btn-primary"
+                onClick={() => router.push("/beneficiaires/create")}
+              >
+                <i className="fas fa-user-plus"></i>
+                Créer un nouveau bénéficiaire
+              </button>
+            </div>
+          </div>
+        </div>
+      )}

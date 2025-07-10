@@ -1,0 +1,775 @@
+/* app/signals/[id]/detailSignal.css - Design amélioré avec espacement corrigé */
+:root {
+  --primary-color: #22974c;       /* Vert principal RI2S */
+  --primary-light: #e6f7ed;       /* Vert clair */
+  --primary-dark: #1a7a3a;        /* Vert foncé */
+  --secondary-color: #22577a;     /* Bleu foncé RI2S */
+  --secondary-light: #e6f1f7;     /* Bleu clair */
+  --secondary-dark: #194158;      /* Bleu plus foncé */
+  --accent-color: #4a9540;        /* Vert accent */
+  --accent-light: #eaf5e7;        /* Vert accent clair */
+  --success-color: #10b981;       /* Vert succès */
+  --success-light: #d1fae5;       /* Vert succès clair */
+  --warning-color: #f59e0b;       /* Orange avertissement */
+  --warning-light: #fef3c7;       /* Orange clair */
+  --danger-color: #ef4444;        /* Rouge danger */
+  --danger-light: #fee2e2;        /* Rouge clair */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --radius-sm: 0.25rem;
+  --radius: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --transition: all 0.3s ease;
+}
+
+/* Base styles */
+.ws-detail-container {
+  padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Success/Error messages avec icônes */
+.ws-detail-success-message {
+  padding: 1rem;
+  background-color: var(--success-light);
+  color: var(--success-color);
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--success-color);
+  box-shadow: var(--shadow-sm);
+  animation: slideInFromTop 0.5s ease forwards;
+  display: flex;
+  align-items: center;
+}
+
+.ws-detail-success-message:before {
+  content: '✓';
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-right: 0.75rem;
+  color: var(--success-color);
+}
+
+.ws-detail-error-message {
+  padding: 1rem;
+  background-color: var(--danger-light);
+  color: var(--danger-color);
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--danger-color);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+}
+
+.ws-detail-error-message:before {
+  content: '⚠';
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-right: 0.75rem;
+  color: var(--danger-color);
+}
+
+/* Grid layout optimisé */
+.ws-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.ws-detail-main-column {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.ws-detail-side-column {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ws-detail-full-width {
+  grid-column: span 2;
+}
+
+/* Columns layout pour Actions et Médecin - ESPACEMENT CORRIGÉ */
+.ws-detail-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem; /* Augmenté de 1.25rem à 3rem */
+  margin-top: 3rem; /* Augmenté de 1.5rem à 3rem */
+}
+
+/* Cards avec touches de couleur - MARGIN BOTTOM AJOUTÉE */
+.ws-detail-card {
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  margin-bottom: 1.5rem; /* Ajouté pour espacer les cards */
+}
+
+.ws-detail-card:hover {
+  box-shadow: var(--shadow);
+  border-color: var(--primary-color); /* Bordure verte au hover */
+}
+
+.ws-detail-card:last-child {
+  margin-bottom: 0; /* Supprimer la margin du dernier élément */
+}
+
+.ws-detail-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.ws-detail-card-header i {
+  font-size: 1.125rem;
+  color: var(--primary-color); /* Icônes vertes */
+}
+
+.ws-detail-card-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.ws-detail-card-content {
+  padding: 1.5rem;
+}
+
+/* Info items avec icônes */
+.ws-detail-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.ws-detail-info-item:last-child {
+  margin-bottom: 0;
+}
+
+.ws-detail-info-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ws-detail-info-label i {
+  font-size: 0.875rem;
+  color: var(--secondary-color); /* Icônes bleues dans les labels */
+  width: 1rem;
+}
+
+.ws-detail-info-value {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-900);
+  padding: 0.75rem;
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-200);
+  border-left: 3px solid var(--primary-color); /* Bordure gauche verte */
+  transition: var(--transition);
+}
+
+.ws-detail-info-value:hover {
+  background: white;
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Status badge avec icône */
+.ws-detail-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-transform: capitalize;
+}
+
+.ws-detail-status-badge i {
+  font-size: 0.75rem;
+}
+
+.ws-detail-status-nouveau {
+  background-color: var(--secondary-light);
+  color: var(--secondary-color);
+}
+
+.ws-detail-status-en-cours {
+  background-color: var(--warning-light);
+  color: var(--warning-color);
+}
+
+.ws-detail-status-cloture {
+  background-color: var(--success-light);
+  color: var(--success-color);
+}
+
+/* Buttons avec icônes */
+.ws-detail-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.ws-detail-button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.ws-detail-button-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.ws-detail-button-primary:hover {
+  background: var(--primary-dark);
+}
+
+.ws-detail-button-secondary {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.ws-detail-button-secondary:hover {
+  background: var(--secondary-dark);
+}
+
+.ws-detail-button-outline {
+  background: white;
+  color: var(--gray-700);
+  border: 1px solid var(--gray-300);
+}
+
+.ws-detail-button-outline:hover {
+  background: var(--gray-50);
+  border-color: var(--primary-color);
+}
+
+/* Buttons discrets pour mode visualisation */
+.ws-detail-button-ghost {
+  background: transparent;
+  color: var(--gray-600);
+  border: 1px solid var(--gray-300);
+  box-shadow: none;
+}
+
+.ws-detail-button-ghost:hover {
+  background: var(--gray-50);
+  color: var(--gray-700);
+  border-color: var(--gray-400);
+  transform: none;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Button dans le header - plus discret */
+.ws-detail-header-button {
+  background: transparent;
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  box-shadow: none;
+}
+
+.ws-detail-header-button:hover {
+  background: var(--secondary-light);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Actions list */
+.ws-detail-actions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ws-detail-action-item {
+  padding: 1rem;
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--primary-color);
+  transition: var(--transition);
+}
+
+.ws-detail-action-item:hover {
+  background: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.ws-detail-action-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-bottom: 0.5rem;
+}
+
+.ws-detail-action-date i {
+  color: var(--secondary-color);
+}
+
+.ws-detail-action-description {
+  font-size: 0.875rem;
+  color: var(--gray-800);
+  line-height: 1.5;
+}
+
+/* Empty state */
+.ws-detail-empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: var(--gray-500);
+}
+
+.ws-detail-empty-state i {
+  font-size: 2rem;
+  color: var(--gray-300);
+  margin-bottom: 1rem;
+}
+
+.ws-detail-empty-state h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin: 0 0 0.5rem 0;
+}
+
+.ws-detail-empty-state p {
+  margin: 0 0 1.5rem 0;
+  font-size: 0.875rem;
+}
+
+/* Loading state */
+.ws-detail-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  background-color: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.ws-detail-spinner {
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 3px solid var(--primary-light);
+  border-top: 3px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1.2s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.ws-detail-loading p {
+  color: var(--gray-600);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Error state */
+.ws-detail-error {
+  padding: 3rem 2rem;
+  text-align: center;
+  background-color: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 600px;
+  margin: 3rem auto;
+  border-top: 4px solid var(--danger-color);
+}
+
+.ws-detail-error i {
+  font-size: 2.5rem;
+  color: var(--danger-color);
+  margin-bottom: 1rem;
+}
+
+.ws-detail-error h3 {
+  color: var(--danger-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.ws-detail-error p {
+  color: var(--gray-600);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.ws-detail-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.ws-detail-back-btn:hover {
+  background-color: var(--secondary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+/* Form styles avec icônes */
+.ws-detail-action-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ws-detail-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ws-detail-form-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.ws-detail-form-label i {
+  color: var(--secondary-color);
+  font-size: 0.875rem;
+}
+
+.ws-detail-required {
+  color: var(--danger-color);
+  margin-left: 0.25rem;
+}
+
+.ws-detail-form-input,
+.ws-detail-form-textarea,
+.ws-detail-form-select {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  width: 100%;
+  transition: var(--transition);
+  background-color: white;
+  border-left: 3px solid var(--gray-200);
+}
+
+.ws-detail-form-input:focus,
+.ws-detail-form-textarea:focus,
+.ws-detail-form-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  border-left-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(34, 151, 76, 0.1);
+}
+
+.ws-detail-form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+.ws-detail-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.ws-detail-cancel-btn {
+  padding: 0.85rem 1.75rem;
+  background-color: white;
+  color: var(--gray-700);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ws-detail-cancel-btn:hover {
+  background-color: var(--gray-100);
+  border-color: var(--gray-400);
+}
+
+.ws-detail-submit-btn {
+  padding: 0.85rem 1.75rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ws-detail-submit-btn:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.ws-detail-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Physician section avec icônes */
+.ws-detail-physician-contact {
+  padding: 1rem;
+  background: var(--secondary-light);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.ws-detail-physician-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 0.75rem;
+}
+
+.ws-detail-physician-header i {
+  font-size: 1rem;
+}
+
+.ws-detail-physician-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.ws-detail-physician-info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray-700);
+}
+
+.ws-detail-physician-info-item i {
+  color: var(--secondary-color);
+  width: 1rem;
+}
+
+.ws-detail-physician-response {
+  padding: 1rem;
+  background: var(--success-light);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--success-color);
+  margin-top: 1rem;
+}
+
+.ws-detail-physician-response-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--success-color);
+  margin-bottom: 0.75rem;
+}
+
+.ws-detail-physician-response-header i {
+  font-size: 1rem;
+}
+
+.ws-detail-physician-response-content {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.ws-detail-physician-response-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+.ws-detail-physician-response-meta i {
+  color: var(--success-color);
+}
+
+/* Animations */
+@keyframes slideInFromTop {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .ws-detail-grid {
+      grid-template-columns: 2fr 1fr;
+  }
+  
+  .ws-detail-main-column {
+      grid-column: span 1;
+      grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .ws-detail-container {
+      padding: 1rem;
+  }
+
+  .ws-detail-grid {
+      grid-template-columns: 1fr;
+  }
+  
+  .ws-detail-main-column,
+  .ws-detail-side-column,
+  .ws-detail-full-width {
+      grid-column: span 1;
+  }
+
+  .ws-detail-columns {
+      grid-template-columns: 1fr;
+      gap: 2rem; /* Réduit sur mobile */
+  }
+  
+  .ws-detail-form-actions {
+      flex-direction: column;
+  }
+  
+  .ws-detail-cancel-btn,
+  .ws-detail-submit-btn {
+      width: 100%;
+      justify-content: center;
+  }
+
+  .ws-detail-physician-info {
+      grid-template-columns: 1fr;
+  }
+
+  .ws-detail-physician-response-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ws-detail-container {
+      padding: 0.75rem;
+  }
+
+  .ws-detail-card-header,
+  .ws-detail-card-content {
+      padding: 1rem;
+  }
+
+  .ws-detail-physician-contact,
+  .ws-detail-physician-response {
+      padding: 0.75rem;
+  }
+
+  .ws-detail-action-item {
+      padding: 0.75rem;
+  }
+
+  .ws-detail-columns {
+      gap: 1.5rem; /* Encore plus réduit sur très petit écran */
+  }
+}

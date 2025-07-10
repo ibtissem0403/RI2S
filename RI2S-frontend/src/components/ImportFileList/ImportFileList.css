@@ -1,0 +1,554 @@
+/* ImportFileList.css */
+
+.import-list-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .import-table-container {
+    overflow-x: auto;
+  }
+  
+  .import-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  
+  .import-table th {
+    background: #f8f9fa;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6;
+    white-space: nowrap;
+  }
+  
+  .import-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: middle;
+  }
+  
+  .import-row:hover {
+    background: #f8f9fa;
+  }
+  
+  /* Colonnes */
+  .file-col {
+    min-width: 250px;
+  }
+  
+  .exp-col {
+    min-width: 120px;
+  }
+  
+  .date-col {
+    min-width: 120px;
+  }
+  
+  .size-col {
+    min-width: 80px;
+  }
+  
+  .user-col {
+    min-width: 150px;
+  }
+  
+  .status-col {
+    min-width: 100px;
+  }
+  
+  .actions-col {
+    min-width: 150px;
+    text-align: center;
+  }
+  
+  /* Cellule fichier */
+  .file-cell {
+    padding: 8px 16px;
+  }
+  
+  .file-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .file-icon {
+    font-size: 16px;
+    color: #6c757d;
+    flex-shrink: 0;
+  }
+  
+  .file-name {
+    font-weight: 500;
+    color: #333;
+    word-break: break-word;
+  }
+  
+  .file-type {
+    font-size: 12px;
+    color: #6c757d;
+    font-weight: 400;
+  }
+  
+  /* Badge expérimentation */
+  .experimentation-badge {
+    display: inline-block;
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  /* Badges de statut */
+  .status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  
+  .status-pending {
+    background: #fff3cd;
+    color: #856404;
+  }
+  
+  .status-validated {
+    background: #d4edda;
+    color: #155724;
+  }
+  
+  .status-rejected {
+    background: #f8d7da;
+    color: #721c24;
+  }
+  
+  .status-integrated {
+    background: #d1ecf1;
+    color: #0c5460;
+  }
+  
+  .status-error {
+    background: #f8d7da;
+    color: #721c24;
+  }
+  
+  /* Boutons d'actions */
+  .actions-cell {
+    white-space: nowrap;
+    padding: 8px 16px;
+    text-align: center;
+  }
+  
+  .import-view-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-right: 5px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+  }
+  
+  .import-view-btn:hover {
+    background: #218838;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+  }
+  
+  .import-details-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-right: 5px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+  }
+  
+  .import-details-btn:hover {
+    background: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+  }
+  
+  .import-delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+  }
+  
+  .import-delete-btn:hover {
+    background: #c82333;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3);
+  }
+  
+  /* États de chargement et d'erreur */
+  .import-loading,
+  .import-error,
+  .import-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .import-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .import-error-icon,
+  .import-empty-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #6c757d;
+  }
+  
+  .import-error h3,
+  .import-empty h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 18px;
+  }
+  
+  .import-error p,
+  .import-empty p {
+    margin: 0 0 20px 0;
+    color: #666;
+    max-width: 400px;
+  }
+  
+  .import-retry-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .import-retry-btn:hover {
+    background: #0056b3;
+  }
+  
+  /* Pagination */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 5px;
+    background: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .pagination-btn {
+    background: white;
+    color: #007bff;
+    border: 1px solid #dee2e6;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .pagination-btn:hover:not(:disabled) {
+    background: #e9ecef;
+    border-color: #adb5bd;
+  }
+  
+  .pagination-btn.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
+  .pagination-btn:disabled {
+    background: #f8f9fa;
+    color: #6c757d;
+    cursor: not-allowed;
+    border-color: #dee2e6;
+  }
+  
+  /* Modal de suppression */
+  .delete-confirmation {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .delete-confirmation p {
+    margin: 0 0 15px 0;
+    color: #333;
+  }
+  
+  .delete-warning {
+    color: #dc3545;
+    font-weight: 500;
+    margin-bottom: 25px;
+  }
+  
+  .delete-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .delete-cancel-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .delete-cancel-btn:hover:not(:disabled) {
+    background: #545b62;
+  }
+  
+  .delete-confirm-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .delete-confirm-btn:hover:not(:disabled) {
+    background: #c82333;
+  }
+  
+  .delete-cancel-btn:disabled,
+  .delete-confirm-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* Styles pour la page de détails */
+  .preview-file-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .preview-file-btn:hover {
+    background: #218838;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(40, 167, 69, 0.3);
+  }
+  
+  .preview-full-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .preview-full-btn:hover:not(:disabled) {
+    background: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 123, 255, 0.3);
+  }
+  
+  .preview-full-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .preview-medium-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .preview-medium-btn:hover {
+    background: #545b62;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(108, 117, 125, 0.3);
+  }
+  
+  .preview-download-btn {
+    background: #17a2b8;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .preview-download-btn:hover {
+    background: #138496;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(23, 162, 184, 0.3);
+  }
+  
+  /* Style pour les fichiers non structurés */
+  .non-structured-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    margin-top: 20px;
+  }
+  
+  .non-structured-icon {
+    font-size: 48px;
+    color: #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .non-structured-preview h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 18px;
+  }
+  
+  .non-structured-preview p {
+    margin: 0 0 10px 0;
+    max-width: 500px;
+    line-height: 1.5;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .import-table-container {
+      font-size: 12px;
+    }
+    
+    .import-table th,
+    .import-table td {
+      padding: 8px 12px;
+    }
+    
+    .file-col {
+      min-width: 200px;
+    }
+    
+    .exp-col,
+    .date-col,
+    .size-col,
+    .user-col {
+      min-width: 100px;
+    }
+    
+    .actions-col {
+      min-width: 120px;
+    }
+    
+    .import-view-btn,
+    .import-details-btn,
+    .import-delete-btn {
+      padding: 6px 10px;
+      margin-right: 3px;
+      min-width: 32px;
+      height: 32px;
+      font-size: 12px;
+    }
+    
+    .pagination {
+      padding: 15px;
+      gap: 3px;
+    }
+    
+    .pagination-btn {
+      padding: 6px 10px;
+      min-width: 36px;
+      height: 36px;
+      font-size: 12px;
+    }
+  }

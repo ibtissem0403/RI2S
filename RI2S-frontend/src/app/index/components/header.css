@@ -1,0 +1,476 @@
+/* header.css */
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 70px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 90;
+}
+  
+/* Partie gauche (recherche) */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px !important; /* Espacement entre le bouton et la barre de recherche */
+}
+  
+.search-container {
+    position: relative;
+    width: 300px;
+    margin-left: 10px !important; /* Espacement supplémentaire */
+}
+  
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #718096;
+    font-size: 14px;
+}
+  
+.search-input {
+    width: 100%;
+    height: 40px;
+    padding: 0 15px 0 40px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #f7fafc;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+  
+.search-input:focus {
+    outline: none;
+    border-color: #4a9540;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(74, 149, 64, 0.1);
+}
+  
+/* Partie droite (notifications, profil) */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+  
+/* Style des notifications */
+.header-notification {
+    position: relative;
+}
+  
+.notification-btn {
+    position: relative;
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4a5568;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+  
+.notification-btn:hover {
+    background-color: #f7fafc;
+    color: #4a9540;
+}
+  
+.notification-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background-color: #e53e3e;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.notification-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 320px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    overflow: hidden;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+  
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #e2e8f0;
+    align-items: center;
+}
+  
+.notification-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2d3748;
+}
+  
+.mark-all-read {
+    background: none;
+    border: none;
+    color: #4a9540;
+    font-size: 12px;
+    cursor: pointer;
+}
+  
+.notification-list {
+    overflow-y: auto;
+    max-height: 280px;
+}
+  
+.notification-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f7fafc;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+  
+.notification-item:hover {
+    background-color: #f7fafc;
+}
+  
+.notification-item.unread {
+    background-color: #ebf8ff;
+}
+  
+.notification-item.unread:hover {
+    background-color: #bee3f8;
+}
+  
+.notification-content p {
+    margin: 0 0 5px;
+    font-size: 14px;
+    color: #2d3748;
+}
+  
+.notification-time {
+    font-size: 12px;
+    color: #718096;
+}
+  
+.notification-footer {
+    padding: 12px;
+    text-align: center;
+    border-top: 1px solid #e2e8f0;
+}
+  
+.notification-footer button {
+    background: none;
+    border: none;
+    color: #4a9540;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+    padding: 5px;
+}
+  
+.notification-footer button:hover {
+    text-decoration: underline;
+}
+  
+.no-notifications {
+    padding: 20px;
+    text-align: center;
+    color: #718096;
+    font-size: 14px;
+}
+  
+/* Style du profil utilisateur */
+.user-profile {
+    position: relative;
+}
+  
+.profile-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 5px;
+    gap: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+  
+.profile-dropdown-toggle:hover {
+    background-color: #f7fafc;
+}
+  
+.user-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #4a9540;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+  
+.user-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+  
+.user-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #2d3748;
+}
+  
+.user-role {
+    font-size: 12px;
+    color: #718096;
+}
+  
+.dropdown-arrow {
+    color: #a0aec0;
+    font-size: 12px;
+    margin-left: 5px;
+}
+  
+.profile-dropdown {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 280px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    overflow: hidden;
+}
+  
+.dropdown-user-info {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #f7fafc;
+    border-bottom: 1px solid #e2e8f0;
+}
+  
+.dropdown-user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #4a9540;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+  
+.dropdown-user-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: #2d3748;
+    margin-bottom: 4px;
+}
+  
+.dropdown-user-email {
+    font-size: 13px;
+    color: #718096;
+}
+  
+.dropdown-menu {
+    padding: 8px 0;
+}
+  
+.dropdown-item {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #4a5568;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+  
+.dropdown-item:hover {
+    background-color: #f7fafc;
+}
+  
+.dropdown-item.logout {
+    color: #e53e3e;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 14px;
+}
+  
+.dropdown-item.logout:hover {
+    background-color: #fff5f5;
+}
+  
+.dropdown-divider {
+    height: 1px;
+    background-color: #e2e8f0;
+    margin: 8px 0;
+}
+  
+.login-button {
+    background-color: #4a9540;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+  
+.login-button:hover {
+    background-color: #3c7934;
+}
+  
+.user-loading {
+    font-size: 14px;
+    color: #a0aec0;
+    padding: 8px 12px;
+}
+  
+@media (max-width: 768px) {
+    .app-header {
+        padding: 0 15px;
+    }
+    
+    .search-container {
+        display: none;
+    }
+    
+    .user-info {
+        display: none;
+    }
+    
+    .dropdown-arrow {
+        display: none;
+    }
+}
+
+/* Animation pour transformer hamburger en X */
+.sidebar-toggle-btn {
+    background: none;
+    border: none;
+    width: 50px !important; /* Plus grand et forcé */
+    height: 50px !important; /* Plus grand et forcé */
+    min-width: 50px !important; /* Assure une taille minimale */
+    min-height: 50px !important; /* Assure une taille minimale */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4a5568;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-right: 25px !important; /* Plus d'espace à droite - forcé */
+    padding: 0 !important; /* Enlève tout padding qui pourrait interférer */
+}
+
+.sidebar-toggle-btn:hover {
+    background-color: #f7fafc;
+    color: #4a9540;
+    transform: scale(1.05); /* Léger effet d'agrandissement au survol */
+}
+
+.sidebar-toggle-btn.active {
+    color: #4a9540;
+    background-color: #f0fff4;
+}
+
+/* Structure de base de l'icône hamburger */
+.hamburger-icon {
+    width: 24px;
+    height: 18px;
+    position: relative;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+/* Les barres qui composent l'icône */
+.hamburger-icon span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #4a5568;
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+/* Position des barres */
+.hamburger-icon span:nth-child(1) {
+    top: 0px;
+}
+
+.hamburger-icon span:nth-child(2) {
+    top: 8px;
+}
+
+.hamburger-icon span:nth-child(3) {
+    top: 16px;
+}
+
+/* Transformation quand le menu est ouvert (active) */
+.hamburger-icon.active span:nth-child(1) {
+    top: 8px;
+    transform: rotate(45deg);
+}
+
+.hamburger-icon.active span:nth-child(2) {
+    opacity: 0;
+    width: 0%;
+    left: 50%;
+}
+
+.hamburger-icon.active span:nth-child(3) {
+    top: 8px;
+    transform: rotate(-45deg);
+}
+
+/* Ajout de couleur sur survol et état actif */
+.sidebar-toggle-btn:hover .hamburger-icon span {
+    background: #4a9540;
+}
+
+.sidebar-toggle-btn.active .hamburger-icon span {
+    background: #4a9540;
+}

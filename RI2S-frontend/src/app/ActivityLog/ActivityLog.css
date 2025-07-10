@@ -1,0 +1,401 @@
+/* src/app/ActivityLog/ActivityLog.css */
+
+.activity-log-container {
+    padding: 1.5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  
+  .activity-log-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .activity-log-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+  }
+  
+  .activity-log-tabs {
+    margin-bottom: 1.5rem;
+  }
+  
+  .activity-log-content {
+    margin-top: 1.5rem;
+  }
+  
+  /* Styles pour les filtres */
+  .filters-container {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    margin-bottom: 1.5rem;
+  }
+  
+  .filters-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .filters-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .filters-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .filters-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  
+  .filter-item {
+    width: 100%;
+  }
+  
+  .filter-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.25rem;
+  }
+  
+  .filter-input,
+  .filter-select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+  }
+  
+  .filter-reset-btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .reset-btn {
+    background-color: #e5e7eb;
+    color: #4b5563;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .reset-btn:hover {
+    background-color: #d1d5db;
+  }
+  
+  /* Styles pour les tableaux */
+  .table-container {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+  }
+  
+  .table {
+    min-width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-header {
+    background-color: #f9fafb;
+  }
+  
+  .table-header th {
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .table-body {
+    background-color: white;
+  }
+  
+  .table-row {
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.2s;
+  }
+  
+  .table-row:hover {
+    background-color: #f9fafb;
+  }
+  
+  .table-cell {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    color: #374151;
+  }
+  
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+  }
+  
+  /* Couleurs pour les actions */
+  .status-create {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .status-read {
+    background-color: #dbeafe;
+    color: #1e40af;
+  }
+  
+  .status-update {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  
+  .status-delete {
+    background-color: #fee2e2;
+    color: #b91c1c;
+  }
+  
+  .status-login {
+    background-color: #e0e7ff;
+    color: #3730a3;
+  }
+  
+  .status-logout {
+    background-color: #f3f4f6;
+    color: #1f2937;
+  }
+  
+  .status-export {
+    background-color: #e0e7ff;
+    color: #4338ca;
+  }
+  
+  /* Couleurs pour les types d'entités */
+  .entity-weaksignal {
+    background-color: #ffedd5;
+    color: #9a3412;
+  }
+  
+  .entity-beneficiary {
+    background-color: #dbeafe;
+    color: #1e40af;
+  }
+  
+  .entity-clinicaldata {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .entity-user {
+    background-color: #e0e7ff;
+    color: #4338ca;
+  }
+  
+  .entity-system {
+    background-color: #f3f4f6;
+    color: #1f2937;
+  }
+  
+  /* Styles pour la pagination */
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background-color: white;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .pagination-info {
+    display: none;
+  }
+  
+  @media (min-width: 640px) {
+    .pagination-info {
+      display: block;
+      font-size: 0.875rem;
+      color: #4b5563;
+    }
+  }
+  
+  .pagination-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .pagination-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    background-color: white;
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+  
+  .pagination-button:disabled {
+    color: #d1d5db;
+    cursor: not-allowed;
+  }
+  
+  .pagination-button:hover:not(:disabled) {
+    background-color: #f9fafb;
+  }
+  
+  .pagination-prev {
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+  }
+  
+  .pagination-next {
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+  }
+  
+  .pagination-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.25rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+  
+  .pagination-number.active {
+    background-color: #dbeafe;
+    border-color: #3b82f6;
+    color: #1d4ed8;
+    z-index: 10;
+  }
+  
+  /* Styles pour le résumé */
+  .summary-container {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .summary-container {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  .summary-header {
+    grid-column: span 1 / span 1;
+  }
+  
+  @media (min-width: 1024px) {
+    .summary-header {
+      grid-column: span 2 / span 2;
+    }
+  }
+  
+  .summary-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+  
+  .summary-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #1f2937;
+  }
+  
+  .summary-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .summary-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .summary-list-item:last-child {
+    border-bottom: none;
+  }
+  
+  .summary-chart {
+    height: 300px;
+    width: 100%;
+  }
+  
+  /* Loader */
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+  }
+  
+  .spinner {
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    border: 0.25rem solid #e5e7eb;
+    border-top-color: #3b82f6;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Message d'erreur */
+  .error-message {
+    background-color: #fee2e2;
+    border: 1px solid #ef4444;
+    color: #b91c1c;
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Message "Aucun résultat" */
+  .no-results {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+  
+  .no-results-text {
+    color: #6b7280;
+    font-size: 0.875rem;
+  }

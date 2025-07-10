@@ -1,0 +1,72 @@
+/* dashboard.css */
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  .content-area {
+    flex: 1;
+    margin-left: 250px; /* Égal à la largeur de la sidebar */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .dashboard-header {
+    background-color: #fff;
+    padding: 15px 30px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dashboard-main {
+    flex: 1;
+    padding: 30px;
+    background-color: #f5f7fa;
+  }
+  
+  .dashboard-section {
+    margin-bottom: 30px;
+  }
+  
+  .dashboard-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .dashboard-section h2 i {
+    margin-right: 10px;
+    color: #4a9540;
+  }
+  
+  .widget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .dashboard-footer {
+    padding: 15px 30px;
+    background-color: #fff;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .content-area {
+      margin-left: 0;
+    }
+    
+    .widget-grid {
+      grid-template-columns: 1fr;
+    }
+  }

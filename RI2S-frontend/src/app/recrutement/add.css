@@ -1,0 +1,461 @@
+/* add.css - Version améliorée avec cartes séparées et barre latérale colorée */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+body {
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+.add-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.add-title {
+  font-size: 1.75rem;
+  color: #2a7d4f;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.add-title i {
+  color: #2a7d4f;
+}
+
+.add-form {
+  /* Supprimé le fond blanc ici car chaque section aura sa propre carte */
+  background: transparent;
+  padding: 0;
+}
+
+.add-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.add-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.add-btn-cancel {
+  background: white;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+}
+
+.add-btn-cancel:hover {
+  background: #f9fafb;
+  color: #111827;
+}
+
+.add-btn-primary {
+  background: #2a7d4f;
+  color: white;
+  border: 1px solid #2a7d4f;
+}
+
+.add-btn-primary:hover {
+  background: #236847;
+  transform: translateY(-1px);
+}
+
+.add-btn-primary:active {
+  transform: translateY(1px);
+}
+
+/* Header avec breadcrumbs et titre */
+.page-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1rem 0 1rem;
+  background-color: transparent;
+}
+
+.breadcrumbs-wrapper {
+  margin-bottom: 1rem;
+}
+
+.add-title {
+  font-size: 1.75rem;
+  color: #2a7d4f;
+  margin: 0 0 2rem 0;
+}
+
+/* Style des sections du formulaire en cartes séparées */
+.form-section {
+  margin-bottom: 2rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+}
+
+.form-section:hover {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.form-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background-color: #2a7d4f;
+}
+
+.form-section-content {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  color: #2a7d4f;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-title i {
+  color: #2a7d4f;
+  font-size: 1.25rem;
+  width: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.form-field {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.form-field label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.form-field label i {
+  color: #64748b;
+  width: 1.25rem;
+  text-align: center;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  background-color: #fff;
+  font-size: 1rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: #2a7d4f;
+  box-shadow: 0 0 0 3px rgba(42, 125, 79, 0.1);
+}
+
+.form-field input:hover,
+.form-field select:hover,
+.form-field textarea:hover {
+  border-color: #9ca3af;
+}
+
+.form-field input.error,
+.form-field select.error,
+.form-field textarea.error {
+  border-color: #dc2626;
+  background-color: #fff8f8;
+}
+
+.form-field .field-error {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.form-field .field-error i {
+  color: #dc2626;
+}
+
+.form-field .required {
+  color: #dc2626;
+}
+
+.form-field .loading-text {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-field .loading-text i {
+  color: #2a7d4f;
+}
+
+/* Notification */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  max-width: 350px;
+  min-width: 250px;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
+.notification-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.notification-message {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.notification-close {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.notification-close:hover {
+  opacity: 1;
+}
+
+.notification.success {
+  background-color: #dcfce7;
+  border-left: 4px solid #2a7d4f;
+  color: #166534;
+}
+
+.notification.error {
+  background-color: #fee2e2;
+  border-left: 4px solid #dc2626;
+  color: #b91c1c;
+}
+
+.notification.info {
+  background-color: #dbeafe;
+  border-left: 4px solid #2563eb;
+  color: #1e40af;
+}
+
+.notification.warning {
+  background-color: #fef3c7;
+  border-left: 4px solid #d97706;
+  color: #b45309;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  font-size: 0.875rem;
+  color: #6b7280;
+  padding: 0.5rem 0;
+}
+
+.breadcrumbs a {
+  color: #2a7d4f;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumbs a:hover {
+  color: #236847;
+  text-decoration: underline;
+}
+
+.breadcrumbs .separator {
+  margin: 0 0.5rem;
+  color: #9ca3af;
+}
+
+.breadcrumbs .current-page {
+  color: #111827;
+  font-weight: 500;
+}
+
+/* Animation pour la notification */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Styles pour les boutons dans l'état disabled */
+.add-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Pour le bouton en cours de chargement */
+.add-btn.loading {
+  position: relative;
+  color: transparent;
+}
+
+.add-btn.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 1rem;
+  margin: -0.5rem 0 0 -0.5rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Styles responsifs */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .add-actions {
+    flex-direction: column;
+  }
+  
+  .add-btn {
+    width: 100%;
+  }
+  
+  .add-btn-cancel {
+    order: 2;
+  }
+  
+  .add-btn-primary {
+    order: 1;
+    margin-bottom: 0.5rem;
+  }
+  
+  .page-header {
+    margin: 0 auto;
+    padding: 0.75rem 0.5rem 0 0.5rem;
+  }
+  
+  .breadcrumbs-wrapper {
+    margin-bottom: 1rem;
+  }
+  
+  .add-container {
+    margin: 0 auto 1rem;
+    padding: 0 0.5rem;
+  }
+}
+
+/* Style des textareas */
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Style des placeholders */
+::placeholder {
+  color: #9ca3af;
+  opacity: 0.7;
+}
+
+/* Style spécifique pour les sections avec barre latérale colorée */
+.form-section-personal::before {
+  background-color: #2a7d4f;
+}
+
+.form-section-type-usager::before {
+  background-color: #4f8a7d;
+}
+
+.form-section-professional::before {
+  background-color: #3c8a6e;
+}
+
+.form-section-senior::before {
+  background-color: #2c7a5e;
+}
+
+.form-section-aidant::before {
+  background-color: #4b6d6d;
+}
+
+.form-section-notes::before {
+  background-color: #5a9a8a;
+}
+
+/* Styles des champs date */
+input[type="date"] {
+  position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}

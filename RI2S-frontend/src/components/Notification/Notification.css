@@ -1,0 +1,72 @@
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    max-width: 350px;
+    width: auto;
+  }
+  
+  .notification {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    animation: slideIn 0.3s ease-out;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notification p {
+    margin: 0 0 0 0.5rem;
+    flex: 1;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+  
+  .close-btn:hover {
+    opacity: 1;
+  }
+  
+  .success {
+    background: #e6ffe6;
+    color: #080;
+  }
+  
+  .error {
+    background: #ffe6e6;
+    color: #c00;
+  }
+  
+  .info {
+    background: #e6f7ff;
+    color: #0070f3;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .notification-container {
+      width: calc(100% - 40px);
+      max-width: none;
+    }
+  }

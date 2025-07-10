@@ -1,0 +1,211 @@
+/* sidebar.css - version complète */
+.sidebar {
+    width: 250px;
+    background: #DFE1DD;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    z-index: 10;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+    overflow-x: hidden;
+  }
+  
+  .sidebar.collapsed {
+    width: 70px;
+  }
+  
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar-logo {
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .sidebar-logo img {
+    max-width: 100%;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Ajustements pour le logo quand la sidebar est réduite */
+  .sidebar.collapsed .sidebar-header {
+    justify-content: center;
+    padding-bottom: 15px;
+  }
+  
+  .sidebar.collapsed .sidebar-logo {
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+  }
+  
+  .sidebar.collapsed .sidebar-logo img {
+    transform: scale(0.9);
+    max-width: none;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+  
+  .sidebar.collapsed .sidebar-toggle {
+    display: none;
+  }
+  
+  /* Styles pour le menu */
+  .sidebar-toggle {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .menu-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .menu-section-title {
+    font-size: 0.8rem;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 5px;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+  }
+  
+  .sidebar.collapsed .menu-section-title {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+  }
+  
+  .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Centrer les icônes quand la sidebar est réduite */
+  .sidebar.collapsed .menu-item {
+    justify-content: center;
+    padding: 15px 5px;
+  }
+  
+  .menu-item svg,
+  .menu-item i {
+    width: 20px;
+    text-align: center;
+    color: #4a9540;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Augmenter légèrement la taille des icônes quand réduit */
+  .sidebar.collapsed .menu-item svg,
+  .sidebar.collapsed .menu-item i {
+    transform: scale(1.2);
+    margin: 0;
+  }
+  
+  .menu-item span {
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+  }
+  
+  .sidebar.collapsed .menu-item span {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    position: absolute;
+    overflow: hidden;
+  }
+  
+  /* La classe pour le wrapper global */
+  .dashboard-wrapper {
+    display: flex;
+    width: 100%;
+  }
+  
+  /* Styles de la zone de contenu qui s'adapte à la sidebar */
+  .content-area {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    transition: margin-left 0.3s ease, width 0.3s ease;
+  }
+  
+  /* Quand la sidebar est réduite, le contenu s'élargit */
+  .dashboard-wrapper.sidebar-collapsed .content-area {
+    margin-left: 70px;
+    width: calc(100% - 70px);
+  }
+  
+  /* Espacement des sections quand la sidebar est réduite */
+  .sidebar.collapsed .menu-section {
+    margin-bottom: 10px;
+  }
+  
+  /* Style pour le tooltip qui apparaîtra au survol des icônes quand la sidebar est réduite */
+  .sidebar.collapsed .menu-item {
+    position: relative;
+  }
+  
+  .sidebar.collapsed .menu-item:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0.9;
+    z-index: 100;
+    margin-left: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .sidebar.open {
+      transform: translateX(0);
+    }
+    
+    .content-area {
+      margin-left: 0;
+      width: 100%;
+    }
+  }

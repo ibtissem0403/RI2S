@@ -1,0 +1,583 @@
+/* components/WeakSignalEditForm/WeakSignalEditForm.css */
+
+.edit-signal-form {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  overflow: hidden;
+}
+
+.edit-signal-form-section {
+  padding: 1.5rem;
+  margin-bottom: 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.edit-signal-form-section:last-child {
+  border-bottom: none;
+}
+
+.edit-signal-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #334155;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #22577a;
+}
+
+.edit-signal-section-title i {
+  color: #22577a;
+}
+
+.edit-signal-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.edit-signal-form-label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 0.5rem;
+}
+
+.edit-signal-required {
+  color: #ef4444;
+  margin-left: 0.25rem;
+}
+
+.edit-signal-form-input,
+.edit-signal-form-textarea,
+.edit-signal-form-select {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  font-size: 0.95rem;
+  color: #1e293b;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: white;
+}
+
+.edit-signal-form-input:focus,
+.edit-signal-form-textarea:focus,
+.edit-signal-form-select:focus {
+  outline: none;
+  border-color: #22577a;
+  box-shadow: 0 0 0 3px rgba(34, 87, 122, 0.1);
+}
+
+.edit-signal-form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+.edit-signal-input-error {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.edit-signal-error-text {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+}
+
+.edit-signal-form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Section d'informations en lecture seule */
+.edit-signal-readonly-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.edit-signal-readonly-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.edit-signal-readonly-label {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.edit-signal-readonly-value {
+  font-size: 0.95rem;
+  color: #334155;
+  padding: 0.75rem;
+  background-color: #f8fafc;
+  border-radius: 0.375rem;
+  border: 1px solid #e2e8f0;
+}
+
+/* Section des contacts */
+.edit-signal-contacts-section {
+  background-color: #fafbfc;
+  border-left: 4px solid #22577a;
+}
+
+.edit-signal-contacts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.edit-signal-add-contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: #22577a;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.edit-signal-add-contact-btn:hover:not(:disabled) {
+  background-color: #1a4b6d;
+  transform: translateY(-1px);
+}
+
+.edit-signal-add-contact-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Liste des contacts existants */
+.edit-signal-contacts-list {
+  margin-bottom: 1.5rem;
+}
+
+.edit-signal-contact-item {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid #3b82f6;
+  transition: box-shadow 0.2s;
+}
+
+.edit-signal-contact-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit-signal-contact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.edit-signal-contact-info {
+  flex: 1;
+}
+
+.edit-signal-contact-person {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.edit-signal-contact-profession {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.edit-signal-contact-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.edit-signal-contact-date,
+.edit-signal-contact-method {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.edit-signal-contact-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.edit-signal-contact-edit-btn,
+.edit-signal-contact-delete-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.edit-signal-contact-edit-btn {
+  color: #f59e0b;
+}
+
+.edit-signal-contact-edit-btn:hover {
+  background-color: #fef3c7;
+}
+
+.edit-signal-contact-delete-btn {
+  color: #ef4444;
+}
+
+.edit-signal-contact-delete-btn:hover {
+  background-color: #fee2e2;
+}
+
+.edit-signal-contact-subject {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.edit-signal-contact-content {
+  font-size: 0.875rem;
+  color: #4b5563;
+  line-height: 1.5;
+  background-color: #f9fafb;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Styles pour les réponses */
+.edit-signal-contact-response {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.edit-signal-response-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.edit-signal-response-badge {
+  background-color: #10b981;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.edit-signal-response-content {
+  font-size: 0.875rem;
+  color: #374151;
+  background-color: #ecfdf5;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  border-left: 3px solid #10b981;
+}
+
+/* Formulaire de nouveau contact */
+.edit-signal-contact-form {
+  background-color: white;
+  border: 2px dashed #cbd5e1;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.edit-signal-contact-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.edit-signal-contact-form-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+}
+
+.edit-signal-contact-form-close {
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.edit-signal-contact-form-close:hover {
+  color: #374151;
+}
+
+.edit-signal-contact-form-section {
+  margin-bottom: 1.5rem;
+}
+
+.edit-signal-contact-form-section-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.edit-signal-response-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.edit-signal-response-checkbox {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.edit-signal-response-fields {
+  background-color: #f9fafb;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e5e7eb;
+}
+
+.edit-signal-contact-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.edit-signal-contact-form-cancel,
+.edit-signal-contact-form-submit {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.edit-signal-contact-form-cancel {
+  background-color: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.edit-signal-contact-form-cancel:hover {
+  background-color: #e5e7eb;
+}
+
+.edit-signal-contact-form-submit {
+  background-color: #22577a;
+  color: white;
+}
+
+.edit-signal-contact-form-submit:hover:not(:disabled) {
+  background-color: #1a4b6d;
+}
+
+.edit-signal-contact-form-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Note d'information */
+.edit-signal-readonly-note {
+  padding: 1rem;
+  background-color: #f1f5f9;
+  border-left: 3px solid #0369a1;
+  color: #334155;
+  font-size: 0.9rem;
+  border-radius: 0 0.375rem 0.375rem 0;
+  margin-bottom: 1.5rem;
+}
+
+/* Actions du formulaire principal */
+.edit-signal-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.edit-signal-form-cancel,
+.edit-signal-form-submit {
+  padding: 0.875rem 2rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.edit-signal-form-cancel {
+  background-color: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+.edit-signal-form-cancel:hover:not(:disabled) {
+  background-color: #e2e8f0;
+}
+
+.edit-signal-form-submit {
+  background-color: #22577a;
+  color: white;
+}
+
+.edit-signal-form-submit:hover:not(:disabled) {
+  background-color: #1a4b6d;
+  transform: translateY(-1px);
+}
+
+.edit-signal-form-cancel:disabled,
+.edit-signal-form-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* États vides */
+.edit-signal-no-contacts {
+  text-align: center;
+  padding: 2rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+.edit-signal-no-contacts i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #cbd5e1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .edit-signal-form-section {
+    padding: 1rem;
+  }
+  
+  .edit-signal-form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .edit-signal-readonly-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .edit-signal-contact-item {
+    padding: 1rem;
+  }
+  
+  .edit-signal-contact-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .edit-signal-contact-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  
+  .edit-signal-form-actions,
+  .edit-signal-contact-form-actions {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .edit-signal-form-cancel,
+  .edit-signal-form-submit,
+  .edit-signal-contact-form-cancel,
+  .edit-signal-contact-form-submit {
+    width: 100%;
+  }
+  
+  .edit-signal-contacts-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 640px) {
+  .edit-signal-section-title {
+    font-size: 1.125rem;
+  }
+  
+  .edit-signal-contact-form {
+    padding: 1rem;
+  }
+}
+
+/* Alerte de clôture automatique lors de l'ajout d'une réponse */
+.edit-signal-auto-closure-alert {
+  margin: 0.5rem 0 1rem;
+  padding: 0.75rem;
+  background-color: #fff8e6;
+  border: 1px solid #ffeeba;
+  border-radius: 0.375rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: #856404;
+}
+
+.edit-signal-auto-closure-alert i {
+  font-size: 1rem;
+  color: #f59e0b;
+}
+
+/* Note d'information sur le statut */
+.edit-signal-form-note {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #4b5563;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.edit-signal-form-note i {
+  color: #3b82f6;
+}
