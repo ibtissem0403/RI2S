@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 //import AuthGuard from '@/components/AuthGuard';
-import './globals.css';
+import "./globals.css";
 
 interface LoginLayoutProps {
   children: ReactNode;
@@ -9,9 +9,7 @@ interface LoginLayoutProps {
 export default function LoginLayout({ children }: LoginLayoutProps) {
   return (
     <div className="login-page">
-      <section className="login-container">
-        {children}
-      </section>
+      <section className="login-container">{children}</section>
     </div>
   );
 }

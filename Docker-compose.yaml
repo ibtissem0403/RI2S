@@ -5,18 +5,12 @@ services:
     build: ./Ri2S-backend
     ports:
       - "5000:5000"
-    volumes:
-      - .:/app
-      - /app/node_modules
     environment:
       - MONGO_URI=mongodb://mongodb:27017/ibt
     depends_on:
       - mongodb
   frontend:
-    build: ./RI2S-frontend
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
+    build: ./RI2S-frontend/
     ports:
       - "3000:3000"
     environment:
@@ -26,7 +20,7 @@ services:
 
   mongodb:
     image: mongo:6
-    container_name: mongodb
+    container_name: mongodbctx
     ports:
       - "27013:27017"
     volumes:

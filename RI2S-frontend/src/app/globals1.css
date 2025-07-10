@@ -1,46 +1,67 @@
 /* Réinitialisation générale */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
+  margin: 0;
 
+  padding: 0;
 
-    margin: 0;
-  
-  
-    padding: 0;
-  
-  
-    box-sizing: border-box;
-  
-  
-  }
-  
-  
-  
-  
-  
-  /* Applique à html et body */
-  
-  
-  html, body {
-  
-  
-    height: 100vh;
-  
-  
-    width: 100%;
-  
-  
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;  
-  
-   /* couleur de secours */
-  
-  
-  }
+  box-sizing: border-box;
+}
 
+/* Applique à html et body */
 
+html,
+body {
+  height: 100vh;
 
-  
+  width: 100%;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+
+  /* couleur de secours */
+}
+:root {
+  --primary-color: #22974c; /* Vert principal RI2S */
+  --primary-light: #e6f7ed; /* Vert clair */
+  --primary-dark: #1a7a3a; /* Vert foncé */
+  --secondary-color: #22577a; /* Bleu foncé RI2S */
+  --secondary-light: #e6f1f7; /* Bleu clair */
+  --secondary-dark: #194158; /* Bleu plus foncé */
+  --accent-color: #4a9540; /* Vert accent */
+  --accent-light: #eaf5e7; /* Vert accent clair */
+  --pro-color: #3b82f6; /* Bleu pour professionnels */
+  --pro-light: #dbeafe; /* Bleu clair pour professionnels */
+  --senior-color: #8b5cf6; /* Violet pour seniors */
+  --senior-light: #ede9fe; /* Violet clair pour seniors */
+  --aidant-color: #ec4899; /* Rose pour aidants */
+  --aidant-light: #fce7f3; /* Rose clair pour aidants */
+  --success-color: #10b981; /* Vert succès */
+  --success-light: #d1fae5; /* Vert succès clair */
+  --warning-color: #f59e0b; /* Orange avertissement */
+  --warning-light: #fef3c7; /* Orange clair */
+  --danger-color: #ef4444; /* Rouge danger */
+  --danger-light: #fee2e2; /* Rouge clair */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --radius-sm: 0.25rem;
+  --radius: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --transition: all 0.3s ease;
+}

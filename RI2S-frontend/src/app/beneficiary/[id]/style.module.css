@@ -1,44 +1,4 @@
 /* Usager RI2S Details - Base sur Beneficiary avec spécificités RI2S */
-:root {
-  --primary-color: #22974c;       /* Vert principal RI2S */
-  --primary-light: #e6f7ed;       /* Vert clair */
-  --primary-dark: #1a7a3a;        /* Vert foncé */
-  --secondary-color: #22577a;     /* Bleu foncé RI2S */
-  --secondary-light: #e6f1f7;     /* Bleu clair */
-  --secondary-dark: #194158;      /* Bleu plus foncé */
-  --accent-color: #4a9540;        /* Vert accent */
-  --accent-light: #eaf5e7;        /* Vert accent clair */
-  --pro-color: #3b82f6;           /* Bleu pour professionnels */
-  --pro-light: #dbeafe;           /* Bleu clair pour professionnels */
-  --senior-color: #8b5cf6;        /* Violet pour seniors */
-  --senior-light: #ede9fe;        /* Violet clair pour seniors */
-  --aidant-color: #ec4899;        /* Rose pour aidants */
-  --aidant-light: #fce7f3;        /* Rose clair pour aidants */
-  --success-color: #10b981;       /* Vert succès */
-  --success-light: #d1fae5;       /* Vert succès clair */
-  --warning-color: #f59e0b;       /* Orange avertissement */
-  --warning-light: #fef3c7;       /* Orange clair */
-  --danger-color: #ef4444;        /* Rouge danger */
-  --danger-light: #fee2e2;        /* Rouge clair */
-  --gray-50: #f9fafb;
-  --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
-  --gray-300: #d1d5db;
-  --gray-400: #9ca3af;
-  --gray-500: #6b7280;
-  --gray-600: #4b5563;
-  --gray-700: #374151;
-  --gray-800: #1f2937;
-  --gray-900: #111827;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --radius-sm: 0.25rem;
-  --radius: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --transition: all 0.3s ease;
-}
 
 /* Base styles */
 .container {
@@ -62,7 +22,7 @@
 }
 
 .successMessage:before {
-  content: '✓';
+  content: "✓";
   font-size: 1.25rem;
   font-weight: bold;
   margin-right: 0.75rem;
@@ -81,7 +41,7 @@
 }
 
 .errorMessage:before {
-  content: '!';
+  content: "!";
   font-size: 1.25rem;
   font-weight: bold;
   margin-right: 0.75rem;
@@ -349,10 +309,10 @@
 
 @keyframes fadeIn {
   from {
-      opacity: 0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
@@ -606,17 +566,20 @@
   color: var(--gray-700);
 }
 
-.statusActif, .statusContacté {
+.statusActif,
+.statusContacté {
   background: var(--success-light);
   color: var(--success-color);
 }
 
-.statusSuspendu, .statusEnattente {
+.statusSuspendu,
+.statusEnattente {
   background: var(--warning-light);
   color: var(--warning-color);
 }
 
-.statusSorti, .statusAnnulé {
+.statusSorti,
+.statusAnnulé {
   background: var(--danger-light);
   color: var(--danger-color);
 }
@@ -743,8 +706,12 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .loadingContainer p {
@@ -848,132 +815,133 @@
 /* Animations */
 @keyframes slideInFromTop {
   from {
-      opacity: 0;
-      transform: translateY(-20px);
+    opacity: 0;
+    transform: translateY(-20px);
   }
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
-      padding: 1rem;
+    padding: 1rem;
   }
 
   .profileHeader {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.5rem;
-      padding: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
   }
 
   .profileInfo {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 1rem;
-      width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    width: 100%;
   }
 
   .profileMeta {
-      flex-direction: column;
-      gap: 0.5rem;
-      align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
   }
 
   .profileActions {
-      width: 100%;
-      flex-direction: column;
-      gap: 0.5rem;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  .editButton, .experimentationButton {
-      width: 100%;
-      justify-content: center;
+  .editButton,
+  .experimentationButton {
+    width: 100%;
+    justify-content: center;
   }
 
   .tabs {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   .tabButton {
-      justify-content: flex-start;
-      text-align: left;
-      border-right: none;
-      border-bottom: 1px solid var(--gray-200);
+    justify-content: flex-start;
+    text-align: left;
+    border-right: none;
+    border-bottom: 1px solid var(--gray-200);
   }
 
   .tabButton:last-child {
-      border-bottom: none;
+    border-bottom: none;
   }
 
   .contentGrid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .experimentsHeader {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
 
   .experimentsTitle {
-      width: 100%;
+    width: 100%;
   }
 
   .addExperimentationButton {
-      width: 100%;
-      justify-content: center;
+    width: 100%;
+    justify-content: center;
   }
 
   .experimentsList {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .statusBadgeCustom {
-      position: static;
-      margin-top: 1rem;
+    position: static;
+    margin-top: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .container {
-      padding: 0.5rem;
+    padding: 0.5rem;
   }
 
   .profileHeader {
-      padding: 1rem;
+    padding: 1rem;
   }
 
   .avatar {
-      width: 60px;
-      height: 60px;
-      font-size: 1.25rem;
+    width: 60px;
+    height: 60px;
+    font-size: 1.25rem;
   }
 
   .profileName {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 
   .metaItem {
-      font-size: 0.8rem;
+    font-size: 0.8rem;
   }
 
   .tabButton {
-      padding: 0.75rem 1rem;
-      font-size: 0.8rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
   }
 
   .cardContent {
-      padding: 1rem;
+    padding: 1rem;
   }
 
   .infoValue {
-      padding: 0.5rem;
-      font-size: 0.8rem;
+    padding: 0.5rem;
+    font-size: 0.8rem;
   }
 }

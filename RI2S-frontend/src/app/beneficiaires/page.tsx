@@ -1,8 +1,7 @@
+"use client";
 // app/beneficiaries/page.tsx
-import BeneficiariesList from '../../components/BeneficiariesList/BeneficiariesList';
+import BeneficiariesList from "../../components/BeneficiariesList/BeneficiariesList";
 
 export default function BeneficiariesPage() {
-  return (
-      <BeneficiariesList />
-  );
+  return <BeneficiariesList />;
 }

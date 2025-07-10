@@ -21,7 +21,8 @@ export default function UsagerRI2SDetailsPage() {
   const [activeTab, setActiveTab] = useState("personal");
 
   const fetchWithAuth = async (url, options = {}) => {
-    const token = localStorage.getItem("token") || sessionStorage.getItem("token");
+    const token =
+      localStorage.getItem("token") || sessionStorage.getItem("token");
     if (!token) {
       router.push("/");
       throw new Error("No authentication token found");
@@ -58,7 +59,7 @@ export default function UsagerRI2SDetailsPage() {
         const idParam = params.id;
         let apiUrl;
 
-        if (idParam.includes('-')) {
+        if (idParam.includes("-")) {
           // Si le format ressemble à un pseudoId (ex: PRO-23-123)
           apiUrl = `http://localhost:5000/api/usagers-ri2s/pseudo/${idParam}`;
         } else {
@@ -78,13 +79,16 @@ export default function UsagerRI2SDetailsPage() {
             );
             experimentations = await experimentsRes.json();
           } catch (expError) {
-            console.error("Erreur lors de la récupération des expérimentations:", expError);
+            console.error(
+              "Erreur lors de la récupération des expérimentations:",
+              expError
+            );
           }
         }
 
         setData({
           ...usagerData,
-          experimentations
+          experimentations,
         });
       } catch (err) {
         setError(err.message || "Failed to load usager data");
@@ -156,44 +160,53 @@ export default function UsagerRI2SDetailsPage() {
 
   // Déterminer l'icône et la couleur en fonction du type d'usager
   const getUserTypeIcon = () => {
-    if (data.type_usager === 'pro') {
-      return 'fas fa-user-md';
-    } else if (data.role === 'senior') {
-      return 'fas fa-user-shield';
-    } else if (data.role === 'aidant') {
-      return 'fas fa-hands-helping';
+    if (data.type_usager === "pro") {
+      return "fas fa-user-md";
+    } else if (data.role === "senior") {
+      return "fas fa-user-shield";
+    } else if (data.role === "aidant") {
+      return "fas fa-hands-helping";
     }
-    return 'fas fa-user';
+    return "fas fa-user";
   };
 
   const getUserTypeClass = () => {
-    if (data.type_usager === 'pro') {
+    if (data.type_usager === "pro") {
       return styles.typePro;
-    } else if (data.role === 'senior') {
+    } else if (data.role === "senior") {
       return styles.typeSenior;
-    } else if (data.role === 'aidant') {
+    } else if (data.role === "aidant") {
       return styles.typeAidant;
     }
-    return '';
+    return "";
   };
 
   // Formater les rôles et types
   const formatTypeUsager = (type) => {
-    switch(type) {
-      case 'pro': return 'Professionnel';
-      case 'non_pro': return 'Non professionnel';
-      default: return type;
+    switch (type) {
+      case "pro":
+        return "Professionnel";
+      case "non_pro":
+        return "Non professionnel";
+      default:
+        return type;
     }
   };
 
   const formatRole = (role) => {
-    switch(role) {
-      case 'senior': return 'Senior';
-      case 'aidant': return 'Aidant';
-      case 'medecin': return 'Médecin';
-      case 'infirmier': return 'Infirmier';
-      case 'pharmacien': return 'Pharmacien';
-      default: return role;
+    switch (role) {
+      case "senior":
+        return "Senior";
+      case "aidant":
+        return "Aidant";
+      case "medecin":
+        return "Médecin";
+      case "infirmier":
+        return "Infirmier";
+      case "pharmacien":
+        return "Pharmacien";
+      default:
+        return role;
     }
   };
 
@@ -224,8 +237,10 @@ export default function UsagerRI2SDetailsPage() {
                     }}
                   />
                   <div className={styles.avatarInitials}>
-                    {data.fullName ? data.fullName.charAt(0).toUpperCase() : ''}
-                    {data.firstName ? data.firstName.charAt(0).toUpperCase() : ''}
+                    {data.fullName ? data.fullName.charAt(0).toUpperCase() : ""}
+                    {data.firstName
+                      ? data.firstName.charAt(0).toUpperCase()
+                      : ""}
                   </div>
                 </div>
                 <div className={styles.statusBadgeCustom}>
@@ -236,19 +251,17 @@ export default function UsagerRI2SDetailsPage() {
                 </div>
               </div>
               <div className={styles.profileDetails}>
-              <h1 className={styles.profileName}>
-  <i className={getUserTypeIcon()}></i>
-  {data.pseudo && data.pseudo.pseudoName ? (
-    <>
-      <span>{data.pseudo.pseudoName}</span>
-      <span className={styles.pseudonymizedTag}>
-
-      </span>
-    </>
-  ) : (
-    `${data.fullName} ${data.firstName}`
-  )}
-</h1>
+                <h1 className={styles.profileName}>
+                  <i className={getUserTypeIcon()}></i>
+                  {data.pseudo && data.pseudo.pseudoName ? (
+                    <>
+                      <span>{data.pseudo.pseudoName}</span>
+                      <span className={styles.pseudonymizedTag}></span>
+                    </>
+                  ) : (
+                    `${data.fullName} ${data.firstName}`
+                  )}
+                </h1>
                 <div className={styles.profileMeta}>
                   <span className={styles.metaItem}>
                     <i className="fas fa-envelope"></i>
@@ -272,7 +285,10 @@ export default function UsagerRI2SDetailsPage() {
                 <i className="fas fa-edit"></i>
                 Modifier
               </button>
-              <button onClick={handleRattacherExperimentation} className={styles.experimentationButton}>
+              <button
+                onClick={handleRattacherExperimentation}
+                className={styles.experimentationButton}
+              >
                 <i className="fas fa-vial"></i>
                 Rattacher à une expérimentation
               </button>
@@ -292,7 +308,7 @@ export default function UsagerRI2SDetailsPage() {
               <i className="fas fa-user-circle"></i>
               Informations personnelles
             </button>
-            {data.type_usager === 'pro' && (
+            {data.type_usager === "pro" && (
               <button
                 className={`${styles.tabButton} ${
                   activeTab === "pro" ? styles.activeTab : ""
@@ -303,7 +319,7 @@ export default function UsagerRI2SDetailsPage() {
                 Informations professionnelles
               </button>
             )}
-            {data.role === 'aidant' && (
+            {data.role === "aidant" && (
               <button
                 className={`${styles.tabButton} ${
                   activeTab === "aidant" ? styles.activeTab : ""
@@ -347,7 +363,7 @@ export default function UsagerRI2SDetailsPage() {
                       Identifiant pseudonymisé
                     </label>
                     <div className={styles.infoValue}>
-                      {data.pseudo ? data.pseudo.pseudoId : 'Non pseudonymisé'}
+                      {data.pseudo ? data.pseudo.pseudoId : "Non pseudonymisé"}
                     </div>
                   </div>
                   <div className={styles.infoItem}>
@@ -373,18 +389,14 @@ export default function UsagerRI2SDetailsPage() {
                       <i className="fas fa-envelope"></i>
                       Email
                     </label>
-                    <div className={styles.infoValue}>
-                      {data.email}
-                    </div>
+                    <div className={styles.infoValue}>{data.email}</div>
                   </div>
                   <div className={styles.infoItem}>
                     <label>
                       <i className="fas fa-phone"></i>
                       Téléphone
                     </label>
-                    <div className={styles.infoValue}>
-                      {data.phone}
-                    </div>
+                    <div className={styles.infoValue}>{data.phone}</div>
                   </div>
                   {data.dateNaissance && (
                     <div className={styles.infoItem}>
@@ -412,7 +424,9 @@ export default function UsagerRI2SDetailsPage() {
                       Date de création
                     </label>
                     <div className={styles.infoValue}>
-                      {data.createdAt ? new Date(data.createdAt).toLocaleDateString() : 'Non spécifiée'}
+                      {data.createdAt
+                        ? new Date(data.createdAt).toLocaleDateString()
+                        : "Non spécifiée"}
                     </div>
                   </div>
                   <div className={styles.infoItem}>
@@ -421,7 +435,11 @@ export default function UsagerRI2SDetailsPage() {
                       Créé par
                     </label>
                     <div className={styles.infoValue}>
-                      {data.createdBy ? `${data.createdBy.fullName || ''} (${data.createdBy.email || ''})` : 'Non spécifié'}
+                      {data.createdBy
+                        ? `${data.createdBy.fullName || ""} (${
+                            data.createdBy.email || ""
+                          })`
+                        : "Non spécifié"}
                     </div>
                   </div>
                   {data.pseudo && (
@@ -431,7 +449,7 @@ export default function UsagerRI2SDetailsPage() {
                         Numéro de dossier
                       </label>
                       <div className={styles.infoValue}>
-                        {data.pseudo.dossierNumber || 'Non attribué'}
+                        {data.pseudo.dossierNumber || "Non attribué"}
                       </div>
                     </div>
                   )}
@@ -442,7 +460,9 @@ export default function UsagerRI2SDetailsPage() {
                         Date d'inclusion
                       </label>
                       <div className={styles.infoValue}>
-                        {new Date(data.pseudo.inclusionDate).toLocaleDateString()}
+                        {new Date(
+                          data.pseudo.inclusionDate
+                        ).toLocaleDateString()}
                       </div>
                     </div>
                   )}
@@ -451,7 +471,7 @@ export default function UsagerRI2SDetailsPage() {
             </div>
           )}
 
-          {activeTab === "pro" && data.type_usager === 'pro' && (
+          {activeTab === "pro" && data.type_usager === "pro" && (
             <div className={styles.contentGrid}>
               <div className={styles.infoCard}>
                 <div className={styles.cardHeader}>
@@ -465,7 +485,7 @@ export default function UsagerRI2SDetailsPage() {
                       Spécialité
                     </label>
                     <div className={styles.infoValue}>
-                      {data.specialite || 'Non spécifiée'}
+                      {data.specialite || "Non spécifiée"}
                     </div>
                   </div>
                   {data.villeExercice && (
@@ -517,7 +537,7 @@ export default function UsagerRI2SDetailsPage() {
             </div>
           )}
 
-          {activeTab === "aidant" && data.role === 'aidant' && (
+          {activeTab === "aidant" && data.role === "aidant" && (
             <div className={styles.contentGrid}>
               <div className={styles.infoCard}>
                 <div className={styles.cardHeader}>
@@ -533,7 +553,8 @@ export default function UsagerRI2SDetailsPage() {
                           Senior associé
                         </label>
                         <div className={styles.infoValue}>
-                          {data.lien_avec_senior.fullName} {data.lien_avec_senior.firstName}
+                          {data.lien_avec_senior.fullName}{" "}
+                          {data.lien_avec_senior.firstName}
                         </div>
                       </div>
                       <div className={styles.infoItem}>
@@ -542,13 +563,15 @@ export default function UsagerRI2SDetailsPage() {
                           Téléphone du senior
                         </label>
                         <div className={styles.infoValue}>
-                          {data.lien_avec_senior.phone || 'Non spécifié'}
+                          {data.lien_avec_senior.phone || "Non spécifié"}
                         </div>
                       </div>
                       <div className={styles.infoAction}>
-                        <button 
+                        <button
                           className={styles.linkButton}
-                          onClick={() => router.push(`/usagers/${data.lien_avec_senior._id}`)}
+                          onClick={() =>
+                            router.push(`/usagers/${data.lien_avec_senior._id}`)
+                          }
                         >
                           <i className="fas fa-external-link-alt"></i>
                           Voir le profil du senior
@@ -592,34 +615,69 @@ export default function UsagerRI2SDetailsPage() {
                       <div className={styles.experimentationHeader}>
                         <div className={styles.experimentationTitle}>
                           <i className="fas fa-flask"></i>
-                          <h4>{exp.experimentation ? exp.experimentation.name : 'Expérimentation'}</h4>
+                          <h4>
+                            {exp.experimentation
+                              ? exp.experimentation.name
+                              : "Expérimentation"}
+                          </h4>
                         </div>
                         <div className={styles.experimentationStatus}>
-                          <span className={`${styles.statusChip} ${styles[`status${exp.statut ? exp.statut.nom_statut.replace(/\s+/g, '') : 'Default'}`]}`}>
-                            {exp.statut ? exp.statut.nom_statut : 'Statut inconnu'}
+                          <span
+                            className={`${styles.statusChip} ${
+                              styles[
+                                `status${
+                                  exp.statut
+                                    ? exp.statut.nom_statut.replace(/\s+/g, "")
+                                    : "Default"
+                                }`
+                              ]
+                            }`}
+                          >
+                            {exp.statut
+                              ? exp.statut.nom_statut
+                              : "Statut inconnu"}
                           </span>
                         </div>
                       </div>
                       <div className={styles.experimentationDetails}>
                         <div className={styles.experimentationItem}>
                           <label>Cible</label>
-                          <div>{exp.cible ? exp.cible.nom_cible : 'Non spécifiée'}</div>
+                          <div>
+                            {exp.cible ? exp.cible.nom_cible : "Non spécifiée"}
+                          </div>
                         </div>
                         <div className={styles.experimentationItem}>
                           <label>Date de rattachement</label>
-                          <div>{exp.date_rattachement ? new Date(exp.date_rattachement).toLocaleDateString() : 'Non spécifiée'}</div>
-                        </div>
-                        {exp.historique_statuts && exp.historique_statuts.length > 0 && (
-                          <div className={styles.experimentationItem}>
-                            <label>Dernier changement</label>
-                            <div>{new Date(exp.historique_statuts[exp.historique_statuts.length - 1].date_changement).toLocaleDateString()}</div>
+                          <div>
+                            {exp.date_rattachement
+                              ? new Date(
+                                  exp.date_rattachement
+                                ).toLocaleDateString()
+                              : "Non spécifiée"}
                           </div>
-                        )}
+                        </div>
+                        {exp.historique_statuts &&
+                          exp.historique_statuts.length > 0 && (
+                            <div className={styles.experimentationItem}>
+                              <label>Dernier changement</label>
+                              <div>
+                                {new Date(
+                                  exp.historique_statuts[
+                                    exp.historique_statuts.length - 1
+                                  ].date_changement
+                                ).toLocaleDateString()}
+                              </div>
+                            </div>
+                          )}
                       </div>
                       <div className={styles.experimentationActions}>
-                        <button 
+                        <button
                           className={styles.viewExperimentationButton}
-                          onClick={() => router.push(`/experimentations/${exp.experimentation._id}/beneficiaires/${exp._id}`)}
+                          onClick={() =>
+                            router.push(
+                              `/experimentations/${exp.experimentation._id}/beneficiaires/${exp._id}`
+                            )
+                          }
                         >
                           <i className="fas fa-eye"></i>
                           Voir les détails
@@ -634,9 +692,7 @@ export default function UsagerRI2SDetailsPage() {
                     <i className="fas fa-flask"></i>
                   </div>
                   <h4>Aucune expérimentation</h4>
-                  <p>
-                    Cet usager n'est rattaché à aucune expérimentation
-                  </p>
+                  <p>Cet usager n'est rattaché à aucune expérimentation</p>
                   <button
                     onClick={handleRattacherExperimentation}
                     className={styles.addFirstExperimentationButton}
