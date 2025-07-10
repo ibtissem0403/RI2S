@@ -3,8 +3,8 @@ name: Deploy to Server
 on:
   push:
     branches:
-      - main  
-  workflow_dispatch:  
+      - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -13,8 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name:  Build and run with docker-compose
-        run: |
-          docker compose down || true
-          docker compose pull || true 
+      - name: Build and run with docker-compose
+        run: 
           docker compose up -d --build
