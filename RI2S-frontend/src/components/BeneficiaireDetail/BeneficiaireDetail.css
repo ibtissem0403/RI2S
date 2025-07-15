@@ -1,0 +1,748 @@
+/* Styles pour la page de détails du bénéficiaire */
+.benef-detail-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem 1.5rem;
+  }
+  
+  /* Header de la page */
+  .benef-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 1rem;
+  }
+  
+  .benef-detail-title-section {
+    flex: 1;
+  }
+  
+  .benef-detail-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #2A7D4F;
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .benef-detail-title i {
+    color: #2A7D4F;
+    font-size: 1.5rem;
+  }
+  
+  .benef-detail-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .benef-detail-dossier, .benef-detail-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.375rem;
+    background-color: #f3f4f6;
+  }
+  
+  .benef-detail-status {
+    background-color: #e5e7eb;
+  }
+  
+  .benef-detail-status.benef-status-active {
+    background-color: #ecfdf5;
+    color: #047857;
+  }
+  
+  .benef-detail-status.benef-status-completed {
+    background-color: #eff6ff;
+    color: #1e40af;
+  }
+  
+  .benef-detail-status.benef-status-suspended {
+    background-color: #fffbeb;
+    color: #92400e;
+  }
+  
+  .benef-detail-status i {
+    font-size: 0.625rem;
+  }
+  
+  .benef-detail-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .benef-detail-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  
+  .benef-detail-btn i {
+    font-size: 0.875rem;
+  }
+  
+  .benef-detail-btn-primary {
+    background-color: #2A7D4F;
+    color: white;
+    border: 1px solid #2A7D4F;
+  }
+  
+  .benef-detail-btn-primary:hover {
+    background-color: #236e44;
+    border-color: #236e44;
+  }
+  
+  .benef-detail-btn-secondary {
+    background-color: white;
+    color: #374151;
+    border: 1px solid #d1d5db;
+  }
+  
+  .benef-detail-btn-secondary:hover {
+    background-color: #f9fafb;
+    border-color: #9ca3af;
+  }
+  
+  /* Onglets */
+  .benef-detail-tabs {
+    display: flex;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+    gap: 0.25rem;
+  }
+  
+  .benef-detail-tab {
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: #6b7280;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+  
+  .benef-detail-tab:hover {
+    color: #4b5563;
+    background-color: #f9fafb;
+  }
+  
+  .benef-detail-tab.active {
+    color: #2A7D4F;
+    border-bottom-color: #2A7D4F;
+  }
+  
+  .benef-detail-tab i {
+    font-size: 0.875rem;
+  }
+  
+  /* Contenu principal */
+  .benef-detail-content {
+    margin-top: 1.5rem;
+  }
+  
+  /* Grille d'informations */
+  .benef-detail-info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .benef-detail-info-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Cartes */
+  .benef-detail-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .benef-detail-card-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+  }
+  
+  .benef-detail-card-header h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  
+  .benef-detail-card-header h3 i {
+    color: #2A7D4F;
+  }
+  
+  .benef-detail-card-content {
+    padding: 1.5rem;
+  }
+  
+  /* Lignes d'information */
+  .benef-detail-info-row {
+    display: flex;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .benef-detail-info-row:last-child {
+    margin-bottom: 0;
+  }
+  
+  .benef-detail-info-label {
+    flex: 0 0 35%;
+    color: #6b7280;
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+  
+  .benef-detail-info-value {
+    flex: 1;
+    color: #1f2937;
+    font-weight: 400;
+  }
+  
+  .benef-detail-notes {
+    flex-direction: column;
+  }
+  
+  .benef-detail-notes .benef-detail-info-label {
+    margin-bottom: 0.5rem;
+  }
+  
+  .benef-detail-notes .benef-detail-info-value {
+    padding: 0.75rem;
+    background-color: #f3f4f6;
+    border-radius: 0.375rem;
+    white-space: pre-line;
+  }
+  
+  .benef-detail-current-status {
+    font-weight: 500;
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+  
+  .benef-detail-current-status.benef-status-active {
+    background-color: #ecfdf5;
+    color: #047857;
+  }
+  
+  .benef-detail-current-status.benef-status-completed {
+    background-color: #eff6ff;
+    color: #1e40af;
+  }
+  
+  .benef-detail-current-status.benef-status-suspended {
+    background-color: #fffbeb;
+    color: #92400e;
+  }
+  
+  /* Champs */
+  .benef-detail-champs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .benef-detail-champs-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .benef-detail-champ {
+    background-color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .benef-detail-champ-name {
+    font-weight: 500;
+    color: #4b5563;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .benef-detail-champ-value {
+    color: #1f2937;
+    word-break: break-word;
+  }
+  
+  .benef-file-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    background-color: #2A7D4F;
+    color: white;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+  
+  .benef-file-link:hover {
+    background-color: #236e44;
+  }
+  
+  /* Timeline */
+  .benef-detail-timeline {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  
+  .benef-detail-timeline-item {
+    position: relative;
+    padding-bottom: 1.5rem;
+  }
+  
+  .benef-detail-timeline-item:last-child {
+    padding-bottom: 0;
+  }
+  
+  .benef-detail-timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 0.75rem;
+    bottom: 0;
+    width: 2px;
+    background-color: #e5e7eb;
+  }
+  
+  .benef-detail-timeline-item:last-child::before {
+    display: none;
+  }
+  
+  .benef-detail-timeline-point {
+    position: absolute;
+    left: -1.5rem;
+    top: 0.375rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #2A7D4F;
+    transform: translateX(-0.4rem);
+    z-index: 1;
+  }
+  
+  .benef-detail-timeline-content {
+    background-color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .benef-detail-timeline-date {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+  }
+  
+  .benef-detail-timeline-status {
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    display: inline-block;
+  }
+  
+  .benef-detail-timeline-status.benef-status-active {
+    background-color: #ecfdf5;
+    color: #047857;
+  }
+  
+  .benef-detail-timeline-status.benef-status-completed {
+    background-color: #eff6ff;
+    color: #1e40af;
+  }
+  
+  .benef-detail-timeline-status.benef-status-suspended {
+    background-color: #fffbeb;
+    color: #92400e;
+  }
+  
+  .benef-detail-timeline-note {
+    padding: 0.75rem;
+    background-color: white;
+    border-radius: 0.25rem;
+    border: 1px solid #e5e7eb;
+    font-style: italic;
+    color: #4b5563;
+    position: relative;
+  }
+  
+  .benef-detail-timeline-note i {
+    color: #9ca3af;
+    font-size: 0.75rem;
+    margin-right: 0.375rem;
+  }
+  
+  /* État vide */
+  .benef-detail-empty {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background-color: #f9fafb;
+    border-radius: 0.5rem;
+    border: 1px dashed #d1d5db;
+  }
+  
+  .benef-detail-empty-icon {
+    font-size: 2.5rem;
+    color: #9ca3af;
+    margin-bottom: 1rem;
+  }
+  
+  .benef-detail-empty h3 {
+    font-size: 1.125rem;
+    color: #4b5563;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .benef-detail-empty p {
+    color: #6b7280;
+    max-width: 24rem;
+    margin: 0 auto;
+  }
+  
+  /* État de chargement */
+  .benef-detail-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+  
+  .benef-detail-spinner {
+    width: 3rem;
+    height: 3rem;
+    border: 0.25rem solid rgba(42, 125, 79, 0.1);
+    border-radius: 50%;
+    border-top-color: #2A7D4F;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1.5rem;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* État d'erreur */
+  .benef-detail-error {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    max-width: 32rem;
+    margin: 0 auto;
+  }
+  
+  .benef-detail-error-icon {
+    font-size: 3rem;
+    color: #ef4444;
+    margin-bottom: 1.5rem;
+  }
+  
+  .benef-detail-error h3 {
+    font-size: 1.25rem;
+    color: #1f2937;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+  
+  .benef-detail-error p {
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+  }
+  
+  .benef-detail-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    background-color: #2A7D4F;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .benef-detail-back-btn:hover {
+    background-color: #236e44;
+  }
+  
+  /* Modal */
+  .benef-detail-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    padding: 1rem;
+  }
+  
+  .benef-detail-modal {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 32rem;
+    max-height: calc(100vh - 2rem);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .benef-detail-modal-header {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .benef-detail-modal-header h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  
+  .benef-detail-modal-header h3 i {
+    color: #2A7D4F;
+  }
+  
+  .benef-detail-modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6b7280;
+    font-size: 1.25rem;
+    padding: 0.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem;
+  }
+  
+  .benef-detail-modal-close:hover {
+    background-color: #f3f4f6;
+    color: #1f2937;
+  }
+  
+  .benef-detail-modal-content {
+    padding: 1.5rem;
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .benef-detail-modal-footer {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .benef-detail-form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .benef-detail-form-group:last-child {
+    margin-bottom: 0;
+  }
+  
+  .benef-detail-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #374151;
+  }
+  
+  .benef-detail-select {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    background-color: white;
+    color: #1f2937;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+  }
+  
+  .benef-detail-select:focus {
+    outline: none;
+    border-color: #2A7D4F;
+    box-shadow: 0 0 0 3px rgba(42, 125, 79, 0.1);
+  }
+  
+  .benef-detail-textarea {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    resize: vertical;
+    min-height: 6rem;
+  }
+  
+  .benef-detail-textarea:focus {
+    outline: none;
+    border-color: #2A7D4F;
+    box-shadow: 0 0 0 3px rgba(42, 125, 79, 0.1);
+  }
+  
+  .benef-detail-btn-spinner {
+    width: 1rem;
+    height: 1rem;
+    border: 0.125rem solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Notification */
+  .benef-detail-notification {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: 500;
+    z-index: 100;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 24rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .benef-detail-notification.success {
+    background: linear-gradient(135deg, #10b981, #059669);
+  }
+  
+  .benef-detail-notification.error {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+  }
+  
+  .benef-detail-notification.hidden {
+    opacity: 0;
+    transform: translateX(100%);
+    pointer-events: none;
+  }
+  
+  .benef-detail-notification-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0;
+    margin-left: auto;
+    opacity: 0.8;
+  }
+  
+  .benef-detail-notification-close:hover {
+    opacity: 1;
+  }
+  
+  /* Responsive */
+  @media (max-width: 640px) {
+    .benef-detail-container {
+      padding: 1rem;
+    }
+    
+    .benef-detail-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .benef-detail-actions {
+      width: 100%;
+      justify-content: space-between;
+    }
+    
+    .benef-detail-tabs {
+      margin: 0 -1rem 1.5rem;
+      padding: 0 1rem;
+    }
+    
+    .benef-detail-tab {
+      padding: 0.75rem 1rem;
+    }
+    
+    .benef-detail-info-row {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    
+    .benef-detail-info-label {
+      flex: none;
+    }
+    
+    .benef-detail-notification {
+      left: 1.25rem;
+      max-width: none;
+    }
+  }

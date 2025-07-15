@@ -455,7 +455,7 @@ function CreateSignalContent() {
                 value={formData.source}
                 onChange={handleInputChange}
                 className="ws-form-input"
-                placeholder="Ex: Capteur, Famille, Médecin, Appel d'urgence..."
+                placeholder="Telegrafik, Presage..."
                 required
               />
             </div>
