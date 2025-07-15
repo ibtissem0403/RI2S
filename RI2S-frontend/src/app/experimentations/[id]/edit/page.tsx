@@ -3,9 +3,9 @@ import { experimentationService } from '@/services/experimentationServices';
 import ExperimentationForm from '../../../../components/experimentation/ExperimentationForm';
 
 interface EditExperimentationPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export const metadata = {
@@ -35,8 +35,11 @@ async function getExperimentationData(id: string) {
 }
 
 export default async function EditExperimentationPage({ params }: EditExperimentationPageProps) {
+  // Attendre les paramètres avant de les utiliser
+  const { id } = await params;
+  
   // Récupérer les données de l'expérimentation
-  const experimentationData = await getExperimentationData(params.id);
+  const experimentationData = await getExperimentationData(id);
   
   // Convertir les données pour le formulaire si elles existent
   const initialData = experimentationData ? {

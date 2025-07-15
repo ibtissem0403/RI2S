@@ -580,15 +580,6 @@ export default function UsagersRI2SList() {
                     </span>
                     {isRefreshing ? "Actualisation" : "Actualiser"}
                   </button>
-                  {/* Ajout du bouton pour afficher les statistiques */}
-                  <button onClick={handleToggleStats} className="stats-btn">
-                    <i
-                      className={`fas ${
-                        showStats ? "fa-chart-bar" : "fa-chart-line"
-                      }`}
-                    ></i>
-                    {showStats ? "Masquer stats" : "Afficher stats"}
-                  </button>
                   <button
                     onClick={() => router.push("/recrutement")}
                     className="header-btn add-btn"
@@ -627,58 +618,48 @@ export default function UsagersRI2SList() {
                 )}
               </div>
 
-              {/* Section des statistiques */}
-              {showStats && (
-                <div className="stats-toggle-container">
-                  <div className="ri2s-stats-toggle">
-                    <button
-                      onClick={handleToggleStats}
-                      className={`ri2s-stats-toggle-btn ${
-                        showStats ? "active" : ""
-                      }`}
-                    >
-                      <i
-                        className={`fas ${
-                          showStats ? "fa-chart-bar" : "fa-chart-line"
-                        }`}
-                      ></i>
-                      {showStats
-                        ? "Masquer les statistiques"
-                        : "Afficher les statistiques"}
-                      <i
-                        className={`fas fa-chevron-${
-                          showStats ? "up" : "down"
-                        }`}
-                      ></i>
-                    </button>
-                  </div>
-
-                  {statsLoading ? (
-                    <div className="stats-loading">
-                      <div className="bl-spinner"></div>
-                      <p>Chargement des statistiques...</p>
-                    </div>
-                  ) : statsError ? (
-                    <div className="stats-error">
-                      <div className="stats-error-title">
-                        <i className="fas fa-exclamation-triangle"></i>
-                        Erreur de chargement des statistiques
-                      </div>
-                      <p>{statsError}</p>
-                      <button
-                        onClick={fetchStats}
-                        className="stats-retry-btn"
-                        disabled={statsLoading}
-                      >
-                        <i className="fas fa-redo"></i>
-                        Réessayer
-                      </button>
-                    </div>
-                  ) : stats ? (
-                    <UsagerRI2SStatsDashboard stats={stats} />
-                  ) : null}
+              {/* Section des statistiques - Repositionnée après les boutons d'actions */}
+              <div className="stats-toggle-container">
+                <div className="ri2s-stats-toggle">
+                  <button
+                    onClick={handleToggleStats}
+                    className={`ri2s-stats-toggle-btn ${showStats ? 'active' : ''}`}
+                  >
+                    <i className={`fas ${showStats ? 'fa-chart-bar' : 'fa-chart-line'}`}></i>
+                    {showStats ? 'Masquer les statistiques' : 'Afficher les statistiques'}
+                    <i className={`fas fa-chevron-${showStats ? 'up' : 'down'}`}></i>
+                  </button>
                 </div>
-              )}
+                
+                {showStats && (
+                  <>
+                    {statsLoading ? (
+                      <div className="stats-loading">
+                        <div className="bl-spinner"></div>
+                        <p>Chargement des statistiques...</p>
+                      </div>
+                    ) : statsError ? (
+                      <div className="stats-error">
+                        <div className="stats-error-title">
+                          <i className="fas fa-exclamation-triangle"></i>
+                          Erreur de chargement des statistiques
+                        </div>
+                        <p>{statsError}</p>
+                        <button
+                          onClick={fetchStats}
+                          className="stats-retry-btn"
+                          disabled={statsLoading}
+                        >
+                          <i className="fas fa-redo"></i>
+                          Réessayer
+                        </button>
+                      </div>
+                    ) : stats ? (
+                      <UsagerRI2SStatsDashboard stats={stats} />
+                    ) : null}
+                  </>
+                )}
+              </div>
 
               {/* Table with responsive container */}
               <div className="bl-table-responsive">

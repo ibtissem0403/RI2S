@@ -55,7 +55,7 @@
     margin-bottom: 1.5rem;
   }
   
-  @media (min-width: 768px) {
+  @media (minwidth: 768px) {
     .cible-form-grid {
       grid-template-columns: repeat(2, 1fr);
     }

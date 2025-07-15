@@ -2,9 +2,9 @@ import React from 'react';
 import ExperimentationDetails from '../../../components/experimentation/ExperimentationDetails';
 
 interface ExperimentationDetailPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export const metadata = {
@@ -12,10 +12,10 @@ export const metadata = {
   description: 'Détails et gestion d\'une expérimentation RI2S',
 };
 
-// Conversion en fonction asynchrone
+// Fonction asynchrone avec await pour params
 export default async function ExperimentationDetailPage({ params }: ExperimentationDetailPageProps) {
-  // Attendre les paramètres
-  const id = params.id;
+  // Attendre les paramètres avant de les utiliser
+  const { id } = await params;
   
   return (
     <div className="container mx-auto px-4 py-8">

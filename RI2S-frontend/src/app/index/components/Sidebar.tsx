@@ -52,24 +52,13 @@ export default function Sidebar() {
             <span>Tableau de bord</span>
           </a>
         </div>
-       
-        <div className="menu-section">
-          <div className="menu-section-title">Expérimentations</div>
-          <a className="menu-item" onClick={() => router.push('/experimentations/685187d451bb1674b47606ca')} style={{cursor: 'pointer'}} data-title="Telegrafik">
-            <FontAwesomeIcon icon={faBroadcastTower} />
-            <span>Telegrafik</span>
-          </a>
-          <a className="menu-item" onClick={() => router.push('/experimentations/6818c30a26c8263ab34bafe8')} style={{cursor: 'pointer'}} data-title="Presage">
-            <FontAwesomeIcon icon={faHeartbeat} />
-            <span>Presage</span>
-          </a>
-        </div>
+      
        
         <div className="menu-section">
           <div className="menu-section-title">Gestion</div>
           <a className="menu-item" onClick={() => router.push('/beneficiaires')} style={{cursor: 'pointer'}} data-title="Bénéficiaires">
             <FontAwesomeIcon icon={faUsers} />
-            <span>Bénéficiaires</span>
+            <span>Usagers RI2S</span>
           </a>
           <a className="menu-item" onClick={() => router.push('/recrutement')} style={{cursor: 'pointer'}} data-title="Formulaires">
             <FontAwesomeIcon icon={faFileAlt} />
