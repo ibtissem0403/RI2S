@@ -39,6 +39,11 @@ const beneficiaireExperimentationSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'StatutCible'
     },
+
+    statuts_secondaires: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'StatutCible'
+    }],
     date_changement: {
       type: Date,
       default: Date.now

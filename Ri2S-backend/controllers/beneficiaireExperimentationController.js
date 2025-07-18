@@ -322,6 +322,7 @@ exports.getBeneficiaireById = async (req, res) => {
       .populate('experimentation')
       .populate('cible')
       .populate('statut')
+      .populate('statuts_secondaires') // Populer les statuts secondaires
       .populate({
         path: 'historique_statuts.statut',
         model: 'StatutCible'
@@ -333,7 +334,7 @@ exports.getBeneficiaireById = async (req, res) => {
       });
     }
     
-    // Récupérer les valeurs des champs
+    // Récupérer les valeurs des champs pour tous les statuts
     const valeursChamps = await ValeurChampStatut.find({ 
       beneficiaire: beneficiaireId,
       champ: { $exists: true, $ne: null }
@@ -366,7 +367,8 @@ exports.associateToExperimentation = async (req, res) => {
     const { 
       experimentationId, 
       cibleId, 
-      statutId,
+      statutId,  // Statut principal
+      statuts_secondaires = [], // Nouveaux statuts secondaires
       valeurs_champs,
       valeurs_champs_communs
     } = req.body;
@@ -397,12 +399,13 @@ exports.associateToExperimentation = async (req, res) => {
       return res.status(404).json({ message: 'Cible non trouvée ou n\'appartient pas à cette expérimentation' });
     }
 
+    // Vérifier le statut principal
     const statut = await StatutCible.findOne({ 
       _id: statutId,
       cible: cibleId 
     });
     if (!statut) {
-      return res.status(404).json({ message: 'Statut non trouvé ou n\'appartient pas à cette cible' });
+      return res.status(404).json({ message: 'Statut principal non trouvé ou n\'appartient pas à cette cible' });
     }
 
     // Vérifier si déjà associé
@@ -419,12 +422,12 @@ exports.associateToExperimentation = async (req, res) => {
       });
     }
 
-    // Validation des valeurs des champs
+    // Validation des valeurs des champs pour le statut principal
     if (valeurs_champs) {
       for (const champId of Object.keys(valeurs_champs)) {
         const champ = await ChampStatut.findOne({
           _id: champId,
-          statut: statutId
+          statut: { $in: [statutId, ...statuts_secondaires] } // Vérifier dans tous les statuts
         });
         
         if (champ && !validateValue(valeurs_champs[champId], champ.type_champ, champ.options)) {
@@ -435,6 +438,7 @@ exports.associateToExperimentation = async (req, res) => {
       }
     }
 
+    // Validation des valeurs des champs communs
     if (valeurs_champs_communs) {
       for (const champId of Object.keys(valeurs_champs_communs)) {
         const champCommun = await ChampCommun.findOne({
@@ -450,7 +454,7 @@ exports.associateToExperimentation = async (req, res) => {
       }
     }
 
-    // Créer l'association
+    // Créer l'association avec le statut principal
     const beneficiaire = await BeneficiaireExperimentation.create({
       usager: usagerId,
       usagerModel: 'UsagerRI2S',
@@ -461,7 +465,8 @@ exports.associateToExperimentation = async (req, res) => {
         statut: statutId,
         date_changement: new Date(),
         note: 'Association initiale'
-      }]
+      }],
+      statuts_secondaires: statuts_secondaires // Nouveau champ pour stocker les statuts secondaires
     });
 
     // Traiter les valeurs des champs
@@ -469,9 +474,10 @@ exports.associateToExperimentation = async (req, res) => {
     
     if (valeurs_champs && Object.keys(valeurs_champs).length > 0) {
       for (const champId of Object.keys(valeurs_champs)) {
+        // Vérifier que le champ appartient à l'un des statuts (principal ou secondaires)
         const champ = await ChampStatut.findOne({
           _id: champId,
-          statut: statutId
+          statut: { $in: [statutId, ...statuts_secondaires] }
         });
 
         if (champ) {
